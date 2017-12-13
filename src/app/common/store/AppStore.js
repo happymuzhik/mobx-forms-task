@@ -4,6 +4,7 @@ import Form from './models/Form';
 
 class AppStore {
     @observable currentFormName = null;
+
     @observable personalDataForm = new Form({
         title: 'Personal Data',
         fields: [
@@ -20,7 +21,24 @@ class AppStore {
                 placeholder: 'Enter your second name'
             })
         ]
-    })
+    });
+    
+    @observable payDataForm = new Form({
+        title: 'Pay Data',
+        fields: [
+            new Field({
+                name: 'card_number',
+                value: '',
+                type: 'text',
+                placeholder: 'card number'
+            })
+        ]
+    });
+
+    @observable finishForm = new Form({
+        title: 'Submit Data',
+    });
+
     @computed get currentTodo() {
         return true;
     }
