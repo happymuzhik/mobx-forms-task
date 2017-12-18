@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import asyncComponent from 'components/Async/Async';
 
 import PersonalDataForm from 'components/Forms/PersonalDataForm';
-import PayDataForm from 'components/Forms/PayDataForm';
+// import PayDataForm from 'components/Forms/PayDataForm';
 import FinishForm from 'components/Forms/FinishForm';
+
+const PayDataForm = asyncComponent(() =>
+    import('components/Forms/PayDataForm').then(module => module.default)
+);
 
 export default class Container extends Component {
     render() {
