@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([2],{
 
 /***/ 90:
 /***/ (function(module, exports, __webpack_require__) {
@@ -19,7 +19,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _mobxReact = __webpack_require__(8);
+var _mobxReact = __webpack_require__(10);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,19 +29,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PayDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(PayDataForm, _Component);
+var PersonalDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(PersonalDataForm, _Component);
 
-    function PayDataForm() {
-        _classCallCheck(this, PayDataForm);
+    function PersonalDataForm() {
+        _classCallCheck(this, PersonalDataForm);
 
-        return _possibleConstructorReturn(this, (PayDataForm.__proto__ || Object.getPrototypeOf(PayDataForm)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PersonalDataForm.__proto__ || Object.getPrototypeOf(PersonalDataForm)).apply(this, arguments));
     }
 
-    _createClass(PayDataForm, [{
+    _createClass(PersonalDataForm, [{
         key: 'render',
         value: function render() {
-            var form = this.props.appStore.payDataForm;
+            var form = this.props.appStore.personalDataForm;
             return _react2.default.createElement(
                 'form',
                 { className: 'form' },
@@ -54,10 +54,19 @@ var PayDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = func
                     'div',
                     { className: 'form-row' },
                     _react2.default.createElement('input', {
-                        name: form.getField('card_number').name,
-                        placeholder: form.getField('card_number').placeholder,
-                        value: form.getField('card_number').value,
-                        type: form.getField('card_number').type })
+                        name: form.getField('name').name,
+                        placeholder: form.getField('name').placeholder,
+                        value: form.getField('name').value,
+                        type: form.getField('name').type })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form-row' },
+                    _react2.default.createElement('input', {
+                        name: form.getField('second_name').name,
+                        placeholder: form.getField('second_name').placeholder,
+                        value: form.getField('second_name').value,
+                        type: form.getField('second_name').type })
                 ),
                 _react2.default.createElement(
                     'div',
@@ -72,9 +81,9 @@ var PayDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = func
         }
     }]);
 
-    return PayDataForm;
+    return PersonalDataForm;
 }(_react.Component)) || _class);
-exports.default = PayDataForm;
+exports.default = PersonalDataForm;
 ;
 
 /***/ })
