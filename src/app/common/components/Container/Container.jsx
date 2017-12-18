@@ -17,8 +17,8 @@ export default class Container extends Component {
         return  <div className="forms-container">
             <Switch>
                 <Route exact path="/" component={PersonalDataForm} />
-                <Route exact path="/paydata" component={PayDataForm} />
-                <Route exact path="/submit" component={FinishForm} />
+                <Route path="/paydata" component={PayDataForm} />
+                <Route path="/submit" component={FinishForm} />
             </Switch>
         </div>
     }

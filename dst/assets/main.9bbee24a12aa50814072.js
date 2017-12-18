@@ -29307,8 +29307,8 @@ var Container = function (_Component) {
                     _reactRouterDom.Switch,
                     null,
                     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: PersonalDataForm }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/paydata', component: PayDataForm }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/submit', component: FinishForm })
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/paydata', component: PayDataForm }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/submit', component: FinishForm })
                 )
             );
         }
@@ -29347,16 +29347,62 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var Loader = function (_Component) {
+    _inherits(Loader, _Component);
+
+    function Loader() {
+        _classCallCheck(this, Loader);
+
+        return _possibleConstructorReturn(this, (Loader.__proto__ || Object.getPrototypeOf(Loader)).apply(this, arguments));
+    }
+
+    _createClass(Loader, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "loader" },
+                "Loading..."
+            );
+        }
+    }]);
+
+    return Loader;
+}(_react.Component);
+
+var Error = function (_Component2) {
+    _inherits(Error, _Component2);
+
+    function Error() {
+        _classCallCheck(this, Error);
+
+        return _possibleConstructorReturn(this, (Error.__proto__ || Object.getPrototypeOf(Error)).apply(this, arguments));
+    }
+
+    _createClass(Error, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "error" },
+                "Error!"
+            );
+        }
+    }]);
+
+    return Error;
+}(_react.Component);
+
 function asyncComponent(getComponent) {
     var _class, _temp2;
 
-    var Async = (_temp2 = _class = function (_Component) {
-        _inherits(Async, _Component);
+    var Async = (_temp2 = _class = function (_Component3) {
+        _inherits(Async, _Component3);
 
         function Async() {
             var _ref;
 
-            var _temp, _this, _ret;
+            var _temp, _this3, _ret;
 
             _classCallCheck(this, Async);
 
@@ -29364,20 +29410,27 @@ function asyncComponent(getComponent) {
                 args[_key] = arguments[_key];
             }
 
-            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Async.__proto__ || Object.getPrototypeOf(Async)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-                Component: _this.Component
-            }, _temp), _possibleConstructorReturn(_this, _ret);
+            return _ret = (_temp = (_this3 = _possibleConstructorReturn(this, (_ref = Async.__proto__ || Object.getPrototypeOf(Async)).call.apply(_ref, [this].concat(args))), _this3), _this3.state = {
+                Component: _this3.Component
+            }, _temp), _possibleConstructorReturn(_this3, _ret);
         }
 
         _createClass(Async, [{
+            key: "setComponent",
+            value: function setComponent(Component) {
+                this.Component = Component;
+                this.setState({ Component: Component });
+            }
+        }, {
             key: "componentWillMount",
             value: function componentWillMount() {
-                var _this2 = this;
+                var _this4 = this;
 
                 if (!this.state.Component) {
                     getComponent().then(function (Component) {
-                        _this2.Component = Component;
-                        _this2.setState({ Component: Component });
+                        return _this4.setComponent(Component);
+                    }).catch(function () {
+                        return _this4.setComponent(Error);
                     });
                 }
             }
@@ -29389,7 +29442,7 @@ function asyncComponent(getComponent) {
                 if (Component) {
                     return _react2.default.createElement(Component, this.props);
                 }
-                return null;
+                return _react2.default.createElement(Loader, null);
             }
         }]);
 

@@ -1,4 +1,17 @@
 import React, { Component } from "react";
+
+class Loader extends Component {
+    render() {
+        return <div className="loader">Loading...</div>
+    }
+}
+
+class Error extends Component {
+    render() {
+        return <div className="error">Error!</div>
+    }
+}
+
 export default function asyncComponent(getComponent) {
     class Async extends Component {
         static Component = null;
@@ -6,12 +19,16 @@ export default function asyncComponent(getComponent) {
             Component: this.Component
         };
 
+        setComponent(Component) {
+            this.Component = Component
+            this.setState({ Component })
+        }
+
         componentWillMount() {
             if (!this.state.Component) {
-                getComponent().then( Component => {
-                    this.Component = Component
-                    this.setState({ Component })
-                })
+                getComponent()
+                    .then(Component => this.setComponent(Component))
+                    .catch(() => this.setComponent(Error))
             }
         }
 
@@ -20,7 +37,7 @@ export default function asyncComponent(getComponent) {
             if (Component) {
                 return <Component {...this.props} />
             }
-            return null
+            return <Loader />
         }
     }
     return Async;
