@@ -10,13 +10,13 @@ class AppStore {
         fields: [
             new Field({
                 name: 'name',
-                value: '',
+                defaultValue: '',
                 type: 'text',
                 placeholder: 'Enter your name'
             }),
             new Field({
                 name: 'second_name',
-                value: '',
+                defaultValue: '',
                 type: 'text',
                 placeholder: 'Enter your second name'
             })
@@ -28,7 +28,7 @@ class AppStore {
         fields: [
             new Field({
                 name: 'card_number',
-                value: '',
+                defaultValue: '',
                 type: 'text',
                 placeholder: 'card number'
             })

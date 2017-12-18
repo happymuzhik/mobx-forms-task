@@ -39,9 +39,16 @@ var PayDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = func
     }
 
     _createClass(PayDataForm, [{
+        key: 'handleChange',
+        value: function handleChange(e) {
+            var form = this.props.appStore.payDataForm;
+            form.getField(e.target.name).onChange(e.target.value);
+        }
+    }, {
         key: 'render',
         value: function render() {
             var form = this.props.appStore.payDataForm;
+            var cardNumber = form.getField('card_number');
             return _react2.default.createElement(
                 'form',
                 { className: 'form' },
@@ -54,10 +61,11 @@ var PayDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = func
                     'div',
                     { className: 'form-row' },
                     _react2.default.createElement('input', {
-                        name: form.getField('card_number').name,
-                        placeholder: form.getField('card_number').placeholder,
-                        value: form.getField('card_number').value,
-                        type: form.getField('card_number').type })
+                        onChange: this.handleChange.bind(this),
+                        name: cardNumber.name,
+                        placeholder: cardNumber.placeholder,
+                        defaultValue: cardNumber.defaultValue,
+                        type: cardNumber.type })
                 ),
                 _react2.default.createElement(
                     'div',

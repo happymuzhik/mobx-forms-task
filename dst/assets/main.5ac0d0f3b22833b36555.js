@@ -86,7 +86,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"2":"9b4a0adfbaa9022d1114","3":"2e63620b9841948feec1","4":"91c27d17e38ef644fb85"}[chunkId] + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"2":"9b4a0adfbaa9022d1114","3":"8bffa635abce336caac8","4":"91c27d17e38ef644fb85"}[chunkId] + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -28907,12 +28907,12 @@ var AppStore = (_class = function () {
             title: 'Personal Data',
             fields: [new _Field2.default({
                 name: 'name',
-                value: '',
+                defaultValue: '',
                 type: 'text',
                 placeholder: 'Enter your name'
             }), new _Field2.default({
                 name: 'second_name',
-                value: '',
+                defaultValue: '',
                 type: 'text',
                 placeholder: 'Enter your second name'
             })]
@@ -28925,7 +28925,7 @@ var AppStore = (_class = function () {
             title: 'Pay Data',
             fields: [new _Field2.default({
                 name: 'card_number',
-                value: '',
+                defaultValue: '',
                 type: 'text',
                 placeholder: 'card number'
             })]
@@ -29009,6 +29009,16 @@ function _initializerWarningHelper(descriptor, context) {
 
 var Field = (_class = function () {
     _createClass(Field, [{
+        key: 'setValue',
+        value: function setValue(value) {
+            this.value = value;
+        }
+    }, {
+        key: 'onChange',
+        value: function onChange(value) {
+            this.setValue(value);
+        }
+    }, {
         key: 'validate',
         value: function validate() {
             if (typeof this.validator == 'function') {
@@ -29028,10 +29038,13 @@ var Field = (_class = function () {
         _initDefineProp(this, 'valid', _descriptor2, this);
 
         this.name = data.name;
+        this.defaultValue = data.defaultValue;
         this.value = data.value;
         this.type = data.type;
         this.placeholder = data.placeholder;
         this.validator = data.validator;
+
+        this.onChange = this.onChange.bind(this);
 
         this.validate();
     }
