@@ -3,8 +3,7 @@ import Field from './models/Field';
 import Form from './models/Form';
 
 const simpleValidate = function (value) {
-    console.log(value)
-    return (value && value.trim().length > 0)
+    return !!(value && value.trim().length > 0)
 }
 
 class AppStore {

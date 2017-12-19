@@ -15,8 +15,7 @@ class Field {
 
     validate() {
         if (typeof this.validator == 'function') {
-            this.valid = this.validator(this.value)
-            console.log('this.valid', this.valid)
+            this.valid = this.validator.call(this, this.value)
         } else {
             this.valid = true
         }

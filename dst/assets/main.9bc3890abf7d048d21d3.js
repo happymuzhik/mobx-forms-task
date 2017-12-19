@@ -28873,8 +28873,7 @@ function _initializerWarningHelper(descriptor, context) {
 }
 
 var simpleValidate = function simpleValidate(value) {
-    console.log(value);
-    return value && value.trim().length > 0;
+    return !!(value && value.trim().length > 0);
 };
 
 var AppStore = (_class = function AppStore() {
@@ -29010,8 +29009,7 @@ var Field = (_class = function () {
         key: 'validate',
         value: function validate() {
             if (typeof this.validator == 'function') {
-                this.valid = this.validator(this.value);
-                console.log('this.valid', this.valid);
+                this.valid = this.validator.call(this, this.value);
             } else {
                 this.valid = true;
             }
