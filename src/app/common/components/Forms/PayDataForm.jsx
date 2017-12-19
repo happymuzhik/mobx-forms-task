@@ -16,7 +16,7 @@ export default class PayDataForm extends Form {
                 <Input field={cardNumber} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="form-row">
-                <button>Next</button>
+                <button onClick={this.onSubmit.bind(this)}>Next</button>
             </div>
         </form>
     }

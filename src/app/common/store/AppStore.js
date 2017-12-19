@@ -2,9 +2,12 @@ import { observable, computed, reaction } from 'mobx';
 import Field from './models/Field';
 import Form from './models/Form';
 
-class AppStore {
-    @observable currentFormName = null;
+const simpleValidate = function (value) {
+    console.log(value)
+    return (value && value.trim().length > 0)
+}
 
+class AppStore {
     @observable personalDataForm = new Form({
         title: 'Personal Data',
         fields: [
@@ -12,13 +15,15 @@ class AppStore {
                 name: 'first_name',
                 defaultValue: '',
                 type: 'text',
-                placeholder: 'Enter your name'
+                placeholder: 'Enter your name',
+                validator: simpleValidate
             }),
             new Field({
                 name: 'second_name',
                 defaultValue: '',
                 type: 'text',
-                placeholder: 'Enter your second name'
+                placeholder: 'Enter your second name',
+                validator: simpleValidate
             })
         ]
     });
@@ -30,7 +35,8 @@ class AppStore {
                 name: 'card_number',
                 defaultValue: '',
                 type: 'text',
-                placeholder: 'card number'
+                placeholder: 'card number',
+                validator: simpleValidate
             })
         ]
     });

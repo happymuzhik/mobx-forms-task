@@ -20,7 +20,7 @@ export default class PersonalDataForm extends Form {
                 <Input field={secondName} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="form-row">
-                <button>Next</button>
+                <button onClick={this.onSubmit.bind(this)}>Next</button>
             </div>
         </form>
     }

@@ -1,6 +1,6 @@
-webpackJsonp([0],{
+webpackJsonp([1],{
 
-/***/ 90:
+/***/ 91:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37,25 +37,24 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PersonalDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Form) {
-    _inherits(PersonalDataForm, _Form);
+var PayDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Form) {
+    _inherits(PayDataForm, _Form);
 
-    function PersonalDataForm() {
-        _classCallCheck(this, PersonalDataForm);
+    function PayDataForm() {
+        _classCallCheck(this, PayDataForm);
 
-        return _possibleConstructorReturn(this, (PersonalDataForm.__proto__ || Object.getPrototypeOf(PersonalDataForm)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PayDataForm.__proto__ || Object.getPrototypeOf(PayDataForm)).apply(this, arguments));
     }
 
-    _createClass(PersonalDataForm, [{
+    _createClass(PayDataForm, [{
         key: 'componentWillMount',
         value: function componentWillMount() {
-            this.form = this.props.appStore.personalDataForm;
+            this.form = this.props.appStore.payDataForm;
         }
     }, {
         key: 'render',
         value: function render() {
-            var firstName = this.form.getField('first_name');
-            var secondName = this.form.getField('second_name');
+            var cardNumber = this.form.getField('card_number');
             return _react2.default.createElement(
                 'form',
                 { className: 'form' },
@@ -67,19 +66,14 @@ var PersonalDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class =
                 _react2.default.createElement(
                     'div',
                     { className: 'form-row' },
-                    _react2.default.createElement(_Input2.default, { field: firstName, onChange: this.handleChange.bind(this) })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'form-row' },
-                    _react2.default.createElement(_Input2.default, { field: secondName, onChange: this.handleChange.bind(this) })
+                    _react2.default.createElement(_Input2.default, { field: cardNumber, onChange: this.handleChange.bind(this) })
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: 'form-row' },
                     _react2.default.createElement(
                         'button',
-                        null,
+                        { onClick: this.onSubmit.bind(this) },
                         'Next'
                     )
                 )
@@ -87,9 +81,9 @@ var PersonalDataForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class =
         }
     }]);
 
-    return PersonalDataForm;
+    return PayDataForm;
 }(_Form3.default)) || _class);
-exports.default = PersonalDataForm;
+exports.default = PayDataForm;
 ;
 
 /***/ }),
@@ -140,6 +134,13 @@ var Form = function (_Component) {
         key: 'handleChange',
         value: function handleChange(e) {
             this.form.getField(e.target.name).onChange(e.target.value);
+        }
+    }, {
+        key: 'onSubmit',
+        value: function onSubmit(e) {
+            e.preventDefault();
+            console.log(this.form.validate());
+            console.log(this.form.getValues());
         }
     }]);
 
@@ -192,11 +193,21 @@ var Input = function (_Component) {
         value: function render() {
             var field = this.props.field;
 
-            return _react2.default.createElement('input', _extends({}, this.props.attrs, {
-                name: field.name,
-                placeholder: field.placeholder,
-                value: field.value,
-                type: field.type }));
+            console.log(field);
+            return _react2.default.createElement(
+                'span',
+                null,
+                _react2.default.createElement('input', _extends({}, this.props, {
+                    name: field.name,
+                    placeholder: field.placeholder,
+                    value: field.value,
+                    type: field.type })),
+                !field.valid ? _react2.default.createElement(
+                    'div',
+                    null,
+                    'Error!'
+                ) : false
+            );
         }
     }]);
 

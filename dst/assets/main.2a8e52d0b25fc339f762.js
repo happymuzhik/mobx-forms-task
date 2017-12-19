@@ -86,7 +86,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"0":"9b29c73654dab5adffc1","1":"77a111a5b92195fee930","2":"0eb46f062d5bed94e15c"}[chunkId] + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"0":"a65a83d9fcfcc24b2bb4","1":"2825d27f80e5a46e6b1a","2":"1fce7122370246969947"}[chunkId] + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -28813,7 +28813,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3, _descriptor4;
+var _desc, _value, _class, _descriptor, _descriptor2, _descriptor3;
 
 var _mobx = __webpack_require__(12);
 
@@ -28872,22 +28872,20 @@ function _initializerWarningHelper(descriptor, context) {
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
+var simpleValidate = function simpleValidate(value) {
+    console.log(value);
+    return value && value.trim().length > 0;
+};
+
 var AppStore = (_class = function AppStore() {
     _classCallCheck(this, AppStore);
 
-    _initDefineProp(this, 'currentFormName', _descriptor, this);
+    _initDefineProp(this, 'personalDataForm', _descriptor, this);
 
-    _initDefineProp(this, 'personalDataForm', _descriptor2, this);
+    _initDefineProp(this, 'payDataForm', _descriptor2, this);
 
-    _initDefineProp(this, 'payDataForm', _descriptor3, this);
-
-    _initDefineProp(this, 'finishForm', _descriptor4, this);
-}, (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'currentFormName', [_mobx.observable], {
-    enumerable: true,
-    initializer: function initializer() {
-        return null;
-    }
-}), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'personalDataForm', [_mobx.observable], {
+    _initDefineProp(this, 'finishForm', _descriptor3, this);
+}, (_descriptor = _applyDecoratedDescriptor(_class.prototype, 'personalDataForm', [_mobx.observable], {
     enumerable: true,
     initializer: function initializer() {
         return new _Form2.default({
@@ -28896,16 +28894,18 @@ var AppStore = (_class = function AppStore() {
                 name: 'first_name',
                 defaultValue: '',
                 type: 'text',
-                placeholder: 'Enter your name'
+                placeholder: 'Enter your name',
+                validator: simpleValidate
             }), new _Field2.default({
                 name: 'second_name',
                 defaultValue: '',
                 type: 'text',
-                placeholder: 'Enter your second name'
+                placeholder: 'Enter your second name',
+                validator: simpleValidate
             })]
         });
     }
-}), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'payDataForm', [_mobx.observable], {
+}), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, 'payDataForm', [_mobx.observable], {
     enumerable: true,
     initializer: function initializer() {
         return new _Form2.default({
@@ -28914,11 +28914,12 @@ var AppStore = (_class = function AppStore() {
                 name: 'card_number',
                 defaultValue: '',
                 type: 'text',
-                placeholder: 'card number'
+                placeholder: 'card number',
+                validator: simpleValidate
             })]
         });
     }
-}), _descriptor4 = _applyDecoratedDescriptor(_class.prototype, 'finishForm', [_mobx.observable], {
+}), _descriptor3 = _applyDecoratedDescriptor(_class.prototype, 'finishForm', [_mobx.observable], {
     enumerable: true,
     initializer: function initializer() {
         return new _Form2.default({
@@ -29010,6 +29011,7 @@ var Field = (_class = function () {
         value: function validate() {
             if (typeof this.validator == 'function') {
                 this.valid = this.validator(this.value);
+                console.log('this.valid', this.valid);
             } else {
                 this.valid = true;
             }
@@ -29032,8 +29034,10 @@ var Field = (_class = function () {
         this.validator = data.validator;
 
         this.onChange = this.onChange.bind(this);
+        this.validate = this.validate.bind(this);
 
-        this.validate();
+        this.valid = true;
+        // this.validate()
     }
 
     return Field;
@@ -29136,6 +29140,7 @@ var Form = (_class = function () {
                     _this.valid = false;
                 }
             });
+            return this.valid;
         }
     }]);
 
@@ -29151,7 +29156,7 @@ var Form = (_class = function () {
         this.title = data.title;
         this.fields = data.fields || [];
 
-        this.validate();
+        // this.validate()
     }
 
     return Form;

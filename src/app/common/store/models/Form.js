@@ -23,13 +23,14 @@ class Form {
                 this.valid = false
             }
         })
+        return this.valid;
     }
 
     constructor(data) {
         this.title = data.title
         this.fields = data.fields || []
 
-        this.validate()
+        // this.validate()
     }
 }
 

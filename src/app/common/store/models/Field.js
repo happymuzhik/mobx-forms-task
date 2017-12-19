@@ -16,6 +16,7 @@ class Field {
     validate() {
         if (typeof this.validator == 'function') {
             this.valid = this.validator(this.value)
+            console.log('this.valid', this.valid)
         } else {
             this.valid = true
         }
@@ -25,14 +26,16 @@ class Field {
     constructor(data) {
         this.name = data.name
         this.defaultValue = data.defaultValue
-        this.value = data.value
+        this.value = data.value        
         this.type = data.type
         this.placeholder = data.placeholder
         this.validator = data.validator
 
         this.onChange = this.onChange.bind(this)
+        this.validate = this.validate.bind(this)
 
-        this.validate()
+        this.valid = true
+        // this.validate()
     }
 }
 
