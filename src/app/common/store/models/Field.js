@@ -30,7 +30,7 @@ class Field {
         this.placeholder = data.placeholder
         this.validator = data.validator
 
-        this.onChange = ::this.onChange
+        this.onChange = this.onChange.bind(this)
 
         this.validate()
     }

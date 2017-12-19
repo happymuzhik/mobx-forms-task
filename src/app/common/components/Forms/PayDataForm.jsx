@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import { inject } from 'mobx-react';
+import Form from './Form';
+import Input from './Input';
 
 @inject('appStore')
-export default class PayDataForm extends Component {
-    handleChange(e) {
-        const form = this.props.appStore.payDataForm;
-        form.getField(e.target.name).onChange(e.target.value)
+export default class PayDataForm extends Form {
+    componentWillMount() {
+        this.form = this.props.appStore.payDataForm;
     }
     render() {
-        const form = this.props.appStore.payDataForm;
-        const cardNumber = form.getField('card_number');
+        const cardNumber = this.form.getField('card_number');
         return <form className="form">
-            <h3>{form.title}</h3>
+            <h3>{this.form.title}</h3>
             <div className="form-row">
-                <input
-                    onChange={::this.handleChange}
-                    name={cardNumber.name}
-                    placeholder={cardNumber.placeholder}
-                    defaultValue={cardNumber.defaultValue}
-                    type={cardNumber.type} />
+                <Input field={cardNumber} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="form-row">
                 <button>Next</button>

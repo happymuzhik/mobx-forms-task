@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 import { inject } from 'mobx-react';
+import Form from './Form';
+import Input from './Input';
 
 @inject('appStore')
-export default class PersonalDataForm extends Component {
+export default class PersonalDataForm extends Form {
+    componentWillMount() {
+        this.form = this.props.appStore.personalDataForm;
+    }
     render() {
-        const form = this.props.appStore.personalDataForm;
+        const firstName = this.form.getField('first_name');
+        const secondName = this.form.getField('second_name');
         return  <form className="form">
-            <h3>{form.title}</h3>
+            <h3>{this.form.title}</h3>
             <div className="form-row">
-                <input
-                    name={form.getField('name').name}
-                    placeholder={form.getField('name').placeholder}
-                    value={form.getField('name').value}
-                    type={form.getField('name').type}/>
+                <Input field={firstName} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="form-row">
-                <input
-                    name={form.getField('second_name').name}
-                    placeholder={form.getField('second_name').placeholder}
-                    value={form.getField('second_name').value}
-                    type={form.getField('second_name').type}/>
+                <Input field={secondName} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="form-row">
                 <button>Next</button>

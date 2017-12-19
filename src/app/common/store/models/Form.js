@@ -6,6 +6,12 @@ class Form {
     @observable valid
     @observable fields
 
+    getValues() {
+        let values = {};
+        this.fields.map(field => values[field.name] = field.value)
+        return values;
+    }
+
     getField(name) {
         return this.fields.filter(field => field.name == name)[0]
     }

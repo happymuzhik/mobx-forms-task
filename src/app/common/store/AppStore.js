@@ -9,7 +9,7 @@ class AppStore {
         title: 'Personal Data',
         fields: [
             new Field({
-                name: 'name',
+                name: 'first_name',
                 defaultValue: '',
                 type: 'text',
                 placeholder: 'Enter your name'
@@ -39,9 +39,6 @@ class AppStore {
         title: 'Submit Data',
     });
 
-    @computed get currentTodo() {
-        return true;
-    }
 };
 
 const appStore = new AppStore();
