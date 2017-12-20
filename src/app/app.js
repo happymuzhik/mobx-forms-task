@@ -4,6 +4,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'mobx-react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import DevTools from 'mobx-react-devtools';
 
 import appStore from 'store/AppStore';
 
@@ -18,6 +19,7 @@ render(
             <div>
                 <Menu />
                 <Container />
+                <DevTools />
             </div>            
         </Router>
     </Provider>,

@@ -14,8 +14,8 @@ class Field {
     }
 
     validate() {
-        if (typeof this.validator == 'function') {
-            this.valid = this.validator.call(this, this.value)
+        if (this.hasValidator) {
+            this.valid = this.validator(this.value)
         } else {
             this.valid = true
         }
@@ -32,6 +32,11 @@ class Field {
 
         this.onChange = this.onChange.bind(this)
         this.validate = this.validate.bind(this)
+
+        this.hasValidator = !!(typeof this.validator == 'function')
+        if (this.hasValidator) {
+            this.validator = this.validator.bind(this)
+        }
 
         this.valid = true
         // this.validate()
