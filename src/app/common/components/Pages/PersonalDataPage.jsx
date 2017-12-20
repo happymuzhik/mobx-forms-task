@@ -5,9 +5,8 @@ import PersonalDataForm from 'components/Forms/PersonalDataForm';
 @inject('appStore')
 export default class PersonalDataPage extends Component {
     render() {
-        const store = this.props.appStore;
         return <div className="personal-data-page">
-            <PersonalDataForm store={store} form={store.personalDataForm}  />
+            <PersonalDataForm form={this.props.appStore.personalDataForm} />
         </div>
     }
 };

@@ -86,7 +86,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"0":"4210cf2f42e77c59a085","1":"8b98105dd4f3e44ca151","2":"576ac0a00620b120249d"}[chunkId] + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"0":"22d3ad6d0c7daf436b56","1":"3f51b5e3c96b09b63e3a","2":"12ff8e96b3bebb3a7fd6"}[chunkId] + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -29307,13 +29307,13 @@ var PersonalDataPage = (0, _Async2.default)(function () {
         return module.default;
     });
 });
-var PayDataForm = (0, _Async2.default)(function () {
-    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 91)).then(function (module) {
+var PayDataPage = (0, _Async2.default)(function () {
+    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 98)).then(function (module) {
         return module.default;
     });
 });
-var FinishForm = (0, _Async2.default)(function () {
-    return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 92)).then(function (module) {
+var FinishPage = (0, _Async2.default)(function () {
+    return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 99)).then(function (module) {
         return module.default;
     });
 });
@@ -29337,8 +29337,8 @@ var Container = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = functi
                     _reactRouterDom.Switch,
                     null,
                     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: PersonalDataPage }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: '/paydata', component: PayDataForm }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: '/submit', component: FinishForm }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/paydata', component: PayDataPage }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/submit', component: FinishPage }),
                     _react2.default.createElement(_reactRouterDom.Route, { component: _Page2.default })
                 )
             );

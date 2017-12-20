@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
+@observer
 export default class Form extends Component {
+    componentWillMount() {
+        this.fields = {}
+        this.props.form.fields.map(field => {
+            this.fields[field.name] = field
+        })
+    }
     handleChange(e) {
         this.props.form.getField(e.target.name).onChange(e.target.value)
     }

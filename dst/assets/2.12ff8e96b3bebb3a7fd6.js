@@ -13,13 +13,9 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _class;
-
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _mobxReact = __webpack_require__(23);
 
 var _Form2 = __webpack_require__(93);
 
@@ -33,7 +29,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var FinishForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Form) {
+var FinishForm = function (_Form) {
     _inherits(FinishForm, _Form);
 
     function FinishForm() {
@@ -43,11 +39,6 @@ var FinishForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = funct
     }
 
     _createClass(FinishForm, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.form = this.props.appStore.finishForm;
-        }
-    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -56,7 +47,7 @@ var FinishForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = funct
                 _react2.default.createElement(
                     'h3',
                     null,
-                    this.form.title
+                    this.props.form.title
                 ),
                 _react2.default.createElement(
                     'div',
@@ -72,7 +63,8 @@ var FinishForm = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = funct
     }]);
 
     return FinishForm;
-}(_Form3.default)) || _class);
+}(_Form3.default);
+
 exports.default = FinishForm;
 ;
 
@@ -91,9 +83,13 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _class;
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _mobxReact = __webpack_require__(23);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -103,7 +99,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Form = function (_Component) {
+var Form = (0, _mobxReact.observer)(_class = function (_Component) {
     _inherits(Form, _Component);
 
     function Form() {
@@ -113,6 +109,16 @@ var Form = function (_Component) {
     }
 
     _createClass(Form, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            this.fields = {};
+            this.props.form.fields.map(function (field) {
+                _this2.fields[field.name] = field;
+            });
+        }
+    }, {
         key: 'handleChange',
         value: function handleChange(e) {
             this.props.form.getField(e.target.name).onChange(e.target.value);
@@ -128,9 +134,69 @@ var Form = function (_Component) {
     }]);
 
     return Form;
-}(_react.Component);
+}(_react.Component)) || _class;
 
 exports.default = Form;
+;
+
+/***/ }),
+
+/***/ 99:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _mobxReact = __webpack_require__(23);
+
+var _FinishForm = __webpack_require__(92);
+
+var _FinishForm2 = _interopRequireDefault(_FinishForm);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FinishPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(FinishPage, _Component);
+
+    function FinishPage() {
+        _classCallCheck(this, FinishPage);
+
+        return _possibleConstructorReturn(this, (FinishPage.__proto__ || Object.getPrototypeOf(FinishPage)).apply(this, arguments));
+    }
+
+    _createClass(FinishPage, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'finish-data-page' },
+                _react2.default.createElement(_FinishForm2.default, { form: this.props.appStore.finishForm })
+            );
+        }
+    }]);
+
+    return FinishPage;
+}(_react.Component)) || _class);
+exports.default = FinishPage;
 ;
 
 /***/ })
