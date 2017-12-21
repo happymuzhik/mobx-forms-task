@@ -1,0 +1,19 @@
+@import '../../styles/vars.styl'
+
+.header
+    text-align: center
+
+.menu
+    display: flex
+    justify-content: space-around
+    &__item
+        font-size: 1.5rem
+        color: $inactive-color
+        &:hover
+        &:active
+            color: $inactive-color
+        &--active
+            color: $active-color
+            &:hover
+            &:active
+                color: $active-color
