@@ -9,6 +9,9 @@ export default class Form extends Component {
             this.fields[field.name] = field
         })
     }
+    checkForm() {
+        return this.props.form.validate();
+    }
     handleChange(e) {
         this.props.form.getField(e.target.name).onChange(e.target.value)
     }

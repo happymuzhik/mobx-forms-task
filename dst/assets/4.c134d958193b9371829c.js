@@ -1,6 +1,76 @@
-webpackJsonp([1],{
+webpackJsonp([4],{
 
-/***/ 93:
+/***/ 102:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(17);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LinkButton = function (_Component) {
+    _inherits(LinkButton, _Component);
+
+    function LinkButton() {
+        _classCallCheck(this, LinkButton);
+
+        return _possibleConstructorReturn(this, (LinkButton.__proto__ || Object.getPrototypeOf(LinkButton)).apply(this, arguments));
+    }
+
+    _createClass(LinkButton, [{
+        key: 'changeURL',
+        value: function changeURL() {
+            var _props = this.props,
+                url = _props.url,
+                history = _props.history,
+                onLeaveHook = _props.onLeaveHook;
+
+            if (typeof onLeaveHook == 'function' && onLeaveHook(history)) {
+                history.push(url);
+            }
+            if (typeof onLeaveHook != 'function') {
+                history.push(url);
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'button',
+                { type: 'button', onClick: this.changeURL.bind(this) },
+                this.props.children
+            );
+        }
+    }]);
+
+    return LinkButton;
+}(_react.Component);
+
+;
+
+exports.default = (0, _reactRouterDom.withRouter)(LinkButton);
+
+/***/ }),
+
+/***/ 92:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21,9 +91,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(11);
 
-var _PayDataForm = __webpack_require__(98);
+var _PersonalDataForm = __webpack_require__(97);
 
-var _PayDataForm2 = _interopRequireDefault(_PayDataForm);
+var _PersonalDataForm2 = _interopRequireDefault(_PersonalDataForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,29 +103,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PayDataPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(PayDataPage, _Component);
+var PersonalDataPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(PersonalDataPage, _Component);
 
-    function PayDataPage() {
-        _classCallCheck(this, PayDataPage);
+    function PersonalDataPage() {
+        _classCallCheck(this, PersonalDataPage);
 
-        return _possibleConstructorReturn(this, (PayDataPage.__proto__ || Object.getPrototypeOf(PayDataPage)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PersonalDataPage.__proto__ || Object.getPrototypeOf(PersonalDataPage)).apply(this, arguments));
     }
 
-    _createClass(PayDataPage, [{
+    _createClass(PersonalDataPage, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'pay-data-page' },
-                _react2.default.createElement(_PayDataForm2.default, { form: this.props.appStore.payDataForm })
+                { className: 'data-page data-page--personal-data-form' },
+                _react2.default.createElement(_PersonalDataForm2.default, { form: this.props.appStore.personalDataForm })
             );
         }
     }]);
 
-    return PayDataPage;
+    return PersonalDataPage;
 }(_react.Component)) || _class);
-exports.default = PayDataPage;
+exports.default = PersonalDataPage;
 ;
 
 /***/ }),
@@ -107,6 +177,11 @@ var Form = (0, _mobxReact.observer)(_class = function (_Component) {
             this.props.form.fields.map(function (field) {
                 _this2.fields[field.name] = field;
             });
+        }
+    }, {
+        key: 'checkForm',
+        value: function checkForm() {
+            return this.props.form.validate();
         }
     }, {
         key: 'handleChange',
@@ -204,7 +279,7 @@ exports.default = Input;
 
 /***/ }),
 
-/***/ 98:
+/***/ 97:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -229,6 +304,10 @@ var _Input = __webpack_require__(96);
 
 var _Input2 = _interopRequireDefault(_Input);
 
+var _LinkButton = __webpack_require__(102);
+
+var _LinkButton2 = _interopRequireDefault(_LinkButton);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -237,16 +316,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PayDataForm = function (_Form) {
-    _inherits(PayDataForm, _Form);
+var PersonalDataForm = function (_Form) {
+    _inherits(PersonalDataForm, _Form);
 
-    function PayDataForm() {
-        _classCallCheck(this, PayDataForm);
+    function PersonalDataForm() {
+        _classCallCheck(this, PersonalDataForm);
 
-        return _possibleConstructorReturn(this, (PayDataForm.__proto__ || Object.getPrototypeOf(PayDataForm)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PersonalDataForm.__proto__ || Object.getPrototypeOf(PersonalDataForm)).apply(this, arguments));
     }
 
-    _createClass(PayDataForm, [{
+    _createClass(PersonalDataForm, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -260,14 +339,21 @@ var PayDataForm = function (_Form) {
                 _react2.default.createElement(
                     'div',
                     { className: 'form-row' },
-                    _react2.default.createElement(_Input2.default, { field: this.fields.card_number, onChange: this.handleChange.bind(this) })
+                    _react2.default.createElement(_Input2.default, { field: this.fields.first_name, onChange: this.handleChange.bind(this) })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form-row' },
+                    _react2.default.createElement(_Input2.default, { field: this.fields.second_name, onChange: this.handleChange.bind(this) })
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: 'form-row' },
                     _react2.default.createElement(
-                        'button',
-                        { onClick: this.onSubmit.bind(this) },
+                        _LinkButton2.default,
+                        {
+                            url: '/paydata',
+                            onLeaveHook: this.checkForm.bind(this) },
                         'Next'
                     )
                 )
@@ -275,10 +361,10 @@ var PayDataForm = function (_Form) {
         }
     }]);
 
-    return PayDataForm;
+    return PersonalDataForm;
 }(_Form3.default);
 
-exports.default = PayDataForm;
+exports.default = PersonalDataForm;
 ;
 
 /***/ })

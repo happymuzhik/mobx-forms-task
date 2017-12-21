@@ -8,8 +8,8 @@ import DevTools from 'mobx-react-devtools';
 
 import appStore from 'store/AppStore';
 
-import Menu from 'components/Menu/Menu';
-import Container from 'components/Container/Container';
+import Menu from 'components/Router/Menu';
+import Container from 'components/Router/Container';
 
 const stores = { appStore };
 

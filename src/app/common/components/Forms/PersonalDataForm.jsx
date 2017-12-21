@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import Form from './Form';
 import Input from './Input';
+import LinkButton from '../Router/LinkButton';
 
 export default class PersonalDataForm extends Form {
-    afterSubmit() {
-        console.log(this.fields)
-    }
     render() {
         return <form className="form">
             <h3>{this.props.form.title}</h3>
@@ -16,7 +14,11 @@ export default class PersonalDataForm extends Form {
                 <Input field={this.fields.second_name} onChange={this.handleChange.bind(this)} />
             </div>
             <div className="form-row">
-                <button onClick={this.onSubmit.bind(this)}>Next</button>
+                <LinkButton
+                    url="/paydata"
+                    onLeaveHook={this.checkForm.bind(this)}>
+                    Next
+                </LinkButton>
             </div>
         </form>
     }

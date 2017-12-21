@@ -86,7 +86,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"0":"fb824e7092d6e4217a2e","1":"a8f6f6a5bbf78d5ed790","2":"53a43ade9885a417474e"}[chunkId] + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"4":"c134d958193b9371829c","5":"fa716d5f4a885b97c7e5","6":"9c4896ed84a5d3601197"}[chunkId] + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -7269,11 +7269,11 @@ var _AppStore = __webpack_require__(85);
 
 var _AppStore2 = _interopRequireDefault(_AppStore);
 
-var _Menu = __webpack_require__(88);
+var _Menu = __webpack_require__(100);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
-var _Container = __webpack_require__(89);
+var _Container = __webpack_require__(101);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -29201,176 +29201,8 @@ var Form = (_class = function () {
 exports.default = Form;
 
 /***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _dec, _class;
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(17);
-
-var _mobxReact = __webpack_require__(11);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Menu = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(Menu, _Component);
-
-    function Menu() {
-        _classCallCheck(this, Menu);
-
-        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
-    }
-
-    _createClass(Menu, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'h1',
-                    null,
-                    'My test app'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'menu' },
-                    _react2.default.createElement(
-                        _reactRouterDom.NavLink,
-                        { exact: true, className: 'menu__item', activeClassName: 'active', to: '/' },
-                        this.props.appStore.personalDataForm.title
-                    ),
-                    '>',
-                    _react2.default.createElement(
-                        _reactRouterDom.NavLink,
-                        { className: 'menu__item', activeClassName: 'active', to: '/paydata' },
-                        this.props.appStore.payDataForm.title
-                    ),
-                    '>',
-                    _react2.default.createElement(
-                        _reactRouterDom.NavLink,
-                        { className: 'menu__item', activeClassName: 'active', to: '/submit' },
-                        this.props.appStore.finishForm.title
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Menu;
-}(_react.Component)) || _class);
-exports.default = Menu;
-;
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _dec, _class;
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(17);
-
-var _mobxReact = __webpack_require__(11);
-
-var _Async = __webpack_require__(90);
-
-var _Async2 = _interopRequireDefault(_Async);
-
-var _Page = __webpack_require__(91);
-
-var _Page2 = _interopRequireDefault(_Page);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var PersonalDataPage = (0, _Async2.default)(function () {
-    return __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 92)).then(function (module) {
-        return module.default;
-    });
-});
-var PayDataPage = (0, _Async2.default)(function () {
-    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 93)).then(function (module) {
-        return module.default;
-    });
-});
-var FinishPage = (0, _Async2.default)(function () {
-    return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 94)).then(function (module) {
-        return module.default;
-    });
-});
-
-var Container = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(Container, _Component);
-
-    function Container() {
-        _classCallCheck(this, Container);
-
-        return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).apply(this, arguments));
-    }
-
-    _createClass(Container, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'forms-container' },
-                _react2.default.createElement(
-                    _reactRouterDom.Switch,
-                    null,
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: PersonalDataPage }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: '/paydata', component: PayDataPage }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: '/submit', component: FinishPage }),
-                    _react2.default.createElement(_reactRouterDom.Route, { component: _Page2.default })
-                )
-            );
-        }
-    }]);
-
-    return Container;
-}(_react.Component)) || _class);
-exports.default = Container;
-;
-
-/***/ }),
+/* 88 */,
+/* 89 */,
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29552,6 +29384,184 @@ var Page404 = function (_Component) {
 }(_react.Component);
 
 exports.default = Page404;
+;
+
+/***/ }),
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(17);
+
+var _mobxReact = __webpack_require__(11);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Menu = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(Menu, _Component);
+
+    function Menu() {
+        _classCallCheck(this, Menu);
+
+        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+    }
+
+    _createClass(Menu, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'h1',
+                    null,
+                    'My test app'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'menu' },
+                    _react2.default.createElement(
+                        _reactRouterDom.NavLink,
+                        { exact: true, className: 'menu__item', activeClassName: 'active', to: '/' },
+                        this.props.appStore.personalDataForm.title
+                    ),
+                    '>',
+                    _react2.default.createElement(
+                        _reactRouterDom.NavLink,
+                        { className: 'menu__item', activeClassName: 'active', to: '/paydata' },
+                        this.props.appStore.payDataForm.title
+                    ),
+                    '>',
+                    _react2.default.createElement(
+                        _reactRouterDom.NavLink,
+                        { className: 'menu__item', activeClassName: 'active', to: '/submit' },
+                        this.props.appStore.finishForm.title
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Menu;
+}(_react.Component)) || _class);
+exports.default = Menu;
+;
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(17);
+
+var _mobxReact = __webpack_require__(11);
+
+var _Async = __webpack_require__(90);
+
+var _Async2 = _interopRequireDefault(_Async);
+
+var _Page = __webpack_require__(91);
+
+var _Page2 = _interopRequireDefault(_Page);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PersonalDataPage = (0, _Async2.default)(function () {
+    return __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, 92)).then(function (module) {
+        return module.default;
+    });
+});
+var PayDataPage = (0, _Async2.default)(function () {
+    return __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, 93)).then(function (module) {
+        return module.default;
+    });
+});
+var FinishPage = (0, _Async2.default)(function () {
+    return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, 94)).then(function (module) {
+        return module.default;
+    });
+});
+
+var Container = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(Container, _Component);
+
+    function Container() {
+        _classCallCheck(this, Container);
+
+        return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).apply(this, arguments));
+    }
+
+    _createClass(Container, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'forms-container' },
+                _react2.default.createElement(
+                    _reactRouterDom.Switch,
+                    null,
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: PersonalDataPage }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/paydata', component: PayDataPage }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/submit', component: FinishPage }),
+                    _react2.default.createElement(_reactRouterDom.Route, { component: _Page2.default })
+                )
+            );
+        }
+    }]);
+
+    return Container;
+}(_react.Component)) || _class);
+exports.default = Container;
 ;
 
 /***/ })
