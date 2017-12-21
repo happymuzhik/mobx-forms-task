@@ -17,5 +17,8 @@ export default class Form extends Component {
         console.log('this.props.form.validate()', this.props.form.validate())
         console.log('this.props.form.valid', this.props.form.valid)
         console.log('this.props.form.getValues()', this.props.form.getValues())
+        if (typeof this.afterSubmit == 'function'){
+            this.afterSubmit.call(this)
+        }
     }
 };

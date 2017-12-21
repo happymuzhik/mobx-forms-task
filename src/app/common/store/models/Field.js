@@ -1,5 +1,7 @@
 import { observable } from 'mobx';
 
+const DEFAULT_ERROR_TEXT = 'Something went wrong';
+
 class Field {
 
     @observable value
@@ -15,7 +17,9 @@ class Field {
 
     validate() {
         if (this.hasValidator) {
-            this.valid = this.validator(this.value)
+            const { valid, error_text } = this.validator(this.value)
+            this.valid = valid;
+            this.error_text = error_text || DEFAULT_ERROR_TEXT;
         } else {
             this.valid = true
         }
@@ -23,22 +27,23 @@ class Field {
     }
 
     constructor(data) {
-        this.name = data.name
-        this.defaultValue = data.defaultValue
-        this.value = data.value        
-        this.type = data.type
-        this.placeholder = data.placeholder
-        this.validator = data.validator
+        this.name = data.name;
+        this.defaultValue = data.defaultValue;
+        this.value = data.value;
+        this.type = data.type;
+        this.placeholder = data.placeholder;
+        this.validator = data.validator;
+        this.error_text = DEFAULT_ERROR_TEXT;
 
-        this.onChange = this.onChange.bind(this)
-        this.validate = this.validate.bind(this)
+        this.onChange = this.onChange.bind(this);
+        this.validate = this.validate.bind(this);
 
-        this.hasValidator = !!(typeof this.validator == 'function')
+        this.hasValidator = !!(typeof this.validator == 'function');
         if (this.hasValidator) {
-            this.validator = this.validator.bind(this)
+            this.validator = this.validator.bind(this);
         }
 
-        this.valid = true
+        this.valid = true;
         // this.validate()
     }
 }

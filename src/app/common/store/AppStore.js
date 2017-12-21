@@ -3,7 +3,12 @@ import Field from './models/Field';
 import Form from './models/Form';
 
 const simpleValidate = function (value) {
-    return !!(value && value.trim().length > 0)
+    const valid = !!(value && value.trim().length > 0);
+    const error_text = 'Field can\'t be empty';
+    return {
+        valid,
+        error_text
+    }
 }
 
 class AppStore {

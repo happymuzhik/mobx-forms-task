@@ -12,8 +12,9 @@ export default class Input extends Component {
                 placeholder={field.placeholder}
                 defaultValue={field.defaultValue}
                 type={field.type} />
-            {(!field.valid) ? 
-                <div>Error!</div>
+            {
+                (!field.valid) ? 
+                <div>{field.error_text}</div>
                 :false
             }
         </span>

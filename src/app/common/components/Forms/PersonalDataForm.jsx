@@ -3,6 +3,9 @@ import Form from './Form';
 import Input from './Input';
 
 export default class PersonalDataForm extends Form {
+    afterSubmit() {
+        console.log(this.fields)
+    }
     render() {
         return <form className="form">
             <h3>{this.props.form.title}</h3>

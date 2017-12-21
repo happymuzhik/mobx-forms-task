@@ -1,6 +1,6 @@
-webpackJsonp([1],{
+webpackJsonp([0],{
 
-/***/ 91:
+/***/ 92:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13,17 +13,17 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _dec, _class;
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Form2 = __webpack_require__(93);
+var _mobxReact = __webpack_require__(11);
 
-var _Form3 = _interopRequireDefault(_Form2);
+var _PersonalDataForm = __webpack_require__(97);
 
-var _Input = __webpack_require__(94);
-
-var _Input2 = _interopRequireDefault(_Input);
+var _PersonalDataForm2 = _interopRequireDefault(_PersonalDataForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,53 +33,34 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PayDataForm = function (_Form) {
-    _inherits(PayDataForm, _Form);
+var PersonalDataPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(PersonalDataPage, _Component);
 
-    function PayDataForm() {
-        _classCallCheck(this, PayDataForm);
+    function PersonalDataPage() {
+        _classCallCheck(this, PersonalDataPage);
 
-        return _possibleConstructorReturn(this, (PayDataForm.__proto__ || Object.getPrototypeOf(PayDataForm)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PersonalDataPage.__proto__ || Object.getPrototypeOf(PersonalDataPage)).apply(this, arguments));
     }
 
-    _createClass(PayDataForm, [{
+    _createClass(PersonalDataPage, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'form',
-                { className: 'form' },
-                _react2.default.createElement(
-                    'h3',
-                    null,
-                    this.props.form.title
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'form-row' },
-                    _react2.default.createElement(_Input2.default, { field: this.fields.card_number, onChange: this.handleChange.bind(this) })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'form-row' },
-                    _react2.default.createElement(
-                        'button',
-                        { onClick: this.onSubmit.bind(this) },
-                        'Next'
-                    )
-                )
+                'div',
+                { className: 'data-page data-page--personal-data-form' },
+                _react2.default.createElement(_PersonalDataForm2.default, { form: this.props.appStore.personalDataForm })
             );
         }
     }]);
 
-    return PayDataForm;
-}(_Form3.default);
-
-exports.default = PayDataForm;
+    return PersonalDataPage;
+}(_react.Component)) || _class);
+exports.default = PersonalDataPage;
 ;
 
 /***/ }),
 
-/***/ 93:
+/***/ 95:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -98,7 +79,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _mobxReact = __webpack_require__(23);
+var _mobxReact = __webpack_require__(11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -139,6 +120,9 @@ var Form = (0, _mobxReact.observer)(_class = function (_Component) {
             console.log('this.props.form.validate()', this.props.form.validate());
             console.log('this.props.form.valid', this.props.form.valid);
             console.log('this.props.form.getValues()', this.props.form.getValues());
+            if (typeof this.afterSubmit == 'function') {
+                this.afterSubmit.call(this);
+            }
         }
     }]);
 
@@ -150,7 +134,7 @@ exports.default = Form;
 
 /***/ }),
 
-/***/ 94:
+/***/ 96:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -171,7 +155,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _mobxReact = __webpack_require__(23);
+var _mobxReact = __webpack_require__(11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -206,7 +190,7 @@ var Input = (0, _mobxReact.observer)(_class = function (_Component) {
                 !field.valid ? _react2.default.createElement(
                     'div',
                     null,
-                    'Error!'
+                    field.error_text
                 ) : false
             );
         }
@@ -220,7 +204,7 @@ exports.default = Input;
 
 /***/ }),
 
-/***/ 98:
+/***/ 97:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -233,17 +217,17 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _class;
-
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _mobxReact = __webpack_require__(23);
+var _Form2 = __webpack_require__(95);
 
-var _PayDataForm = __webpack_require__(91);
+var _Form3 = _interopRequireDefault(_Form2);
 
-var _PayDataForm2 = _interopRequireDefault(_PayDataForm);
+var _Input = __webpack_require__(96);
+
+var _Input2 = _interopRequireDefault(_Input);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -253,29 +237,58 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PayDataPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(PayDataPage, _Component);
+var PersonalDataForm = function (_Form) {
+    _inherits(PersonalDataForm, _Form);
 
-    function PayDataPage() {
-        _classCallCheck(this, PayDataPage);
+    function PersonalDataForm() {
+        _classCallCheck(this, PersonalDataForm);
 
-        return _possibleConstructorReturn(this, (PayDataPage.__proto__ || Object.getPrototypeOf(PayDataPage)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PersonalDataForm.__proto__ || Object.getPrototypeOf(PersonalDataForm)).apply(this, arguments));
     }
 
-    _createClass(PayDataPage, [{
+    _createClass(PersonalDataForm, [{
+        key: 'afterSubmit',
+        value: function afterSubmit() {
+            console.log(this.fields);
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'div',
-                { className: 'pay-data-page' },
-                _react2.default.createElement(_PayDataForm2.default, { form: this.props.appStore.payDataForm })
+                'form',
+                { className: 'form' },
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    this.props.form.title
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form-row' },
+                    _react2.default.createElement(_Input2.default, { field: this.fields.first_name, onChange: this.handleChange.bind(this) })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form-row' },
+                    _react2.default.createElement(_Input2.default, { field: this.fields.second_name, onChange: this.handleChange.bind(this) })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form-row' },
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.onSubmit.bind(this) },
+                        'Next'
+                    )
+                )
             );
         }
     }]);
 
-    return PayDataPage;
-}(_react.Component)) || _class);
-exports.default = PayDataPage;
+    return PersonalDataForm;
+}(_Form3.default);
+
+exports.default = PersonalDataForm;
 ;
 
 /***/ })
