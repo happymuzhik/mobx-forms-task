@@ -1,4 +1,4 @@
-webpackJsonp([4],{
+webpackJsonp([5],{
 
 /***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
@@ -70,7 +70,7 @@ exports.default = (0, _reactRouterDom.withRouter)(LinkButton);
 
 /***/ }),
 
-/***/ 92:
+/***/ 93:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91,9 +91,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(11);
 
-var _PersonalDataForm = __webpack_require__(97);
+var _PayDataForm = __webpack_require__(98);
 
-var _PersonalDataForm2 = _interopRequireDefault(_PersonalDataForm);
+var _PayDataForm2 = _interopRequireDefault(_PayDataForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -103,29 +103,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PersonalDataPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(PersonalDataPage, _Component);
+var PayDataPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(PayDataPage, _Component);
 
-    function PersonalDataPage() {
-        _classCallCheck(this, PersonalDataPage);
+    function PayDataPage() {
+        _classCallCheck(this, PayDataPage);
 
-        return _possibleConstructorReturn(this, (PersonalDataPage.__proto__ || Object.getPrototypeOf(PersonalDataPage)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PayDataPage.__proto__ || Object.getPrototypeOf(PayDataPage)).apply(this, arguments));
     }
 
-    _createClass(PersonalDataPage, [{
+    _createClass(PayDataPage, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'data-page data-page--personal-data-form' },
-                _react2.default.createElement(_PersonalDataForm2.default, { form: this.props.appStore.personalDataForm })
+                { className: 'pay-data-page' },
+                _react2.default.createElement(_PayDataForm2.default, { form: this.props.appStore.payDataForm })
             );
         }
     }]);
 
-    return PersonalDataPage;
+    return PayDataPage;
 }(_react.Component)) || _class);
-exports.default = PersonalDataPage;
+exports.default = PayDataPage;
 ;
 
 /***/ }),
@@ -260,7 +260,7 @@ var Input = (0, _mobxReact.observer)(_class = function (_Component) {
                 _react2.default.createElement('input', _extends({}, this.props, {
                     name: field.name,
                     placeholder: field.placeholder,
-                    defaultValue: field.defaultValue,
+                    defaultValue: field.value || field.defaultValue,
                     type: field.type })),
                 !field.valid ? _react2.default.createElement(
                     'div',
@@ -279,7 +279,7 @@ exports.default = Input;
 
 /***/ }),
 
-/***/ 97:
+/***/ 98:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -316,16 +316,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PersonalDataForm = function (_Form) {
-    _inherits(PersonalDataForm, _Form);
+var PayDataForm = function (_Form) {
+    _inherits(PayDataForm, _Form);
 
-    function PersonalDataForm() {
-        _classCallCheck(this, PersonalDataForm);
+    function PayDataForm() {
+        _classCallCheck(this, PayDataForm);
 
-        return _possibleConstructorReturn(this, (PersonalDataForm.__proto__ || Object.getPrototypeOf(PersonalDataForm)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PayDataForm.__proto__ || Object.getPrototypeOf(PayDataForm)).apply(this, arguments));
     }
 
-    _createClass(PersonalDataForm, [{
+    _createClass(PayDataForm, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -339,20 +339,20 @@ var PersonalDataForm = function (_Form) {
                 _react2.default.createElement(
                     'div',
                     { className: 'form-row' },
-                    _react2.default.createElement(_Input2.default, { field: this.fields.first_name, onChange: this.handleChange.bind(this) })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'form-row' },
-                    _react2.default.createElement(_Input2.default, { field: this.fields.second_name, onChange: this.handleChange.bind(this) })
+                    _react2.default.createElement(_Input2.default, { field: this.fields.card_number, onChange: this.handleChange.bind(this) })
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: 'form-row' },
                     _react2.default.createElement(
                         _LinkButton2.default,
+                        { url: '/' },
+                        'Prev'
+                    ),
+                    _react2.default.createElement(
+                        _LinkButton2.default,
                         {
-                            url: '/paydata',
+                            url: '/submit',
                             onLeaveHook: this.checkForm.bind(this) },
                         'Next'
                     )
@@ -361,10 +361,10 @@ var PersonalDataForm = function (_Form) {
         }
     }]);
 
-    return PersonalDataForm;
+    return PayDataForm;
 }(_Form3.default);
 
-exports.default = PersonalDataForm;
+exports.default = PayDataForm;
 ;
 
 /***/ })

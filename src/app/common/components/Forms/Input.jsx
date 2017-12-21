@@ -10,7 +10,7 @@ export default class Input extends Component {
                 {...this.props}
                 name={field.name}
                 placeholder={field.placeholder}
-                defaultValue={field.defaultValue}
+                defaultValue={field.value || field.defaultValue}
                 type={field.type} />
             {
                 (!field.valid) ? 
