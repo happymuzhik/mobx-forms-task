@@ -86,7 +86,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"4":"379188700ebc63d61f1a","5":"d56e1b775f352823e534","6":"9c4896ed84a5d3601197"}[chunkId] + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + {"0":"181f8433736d62568add","1":"da3751f24c7050d39f6b","2":"8706bc9546f1e52bf282"}[chunkId] + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -5746,92 +5746,6 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(7);
-  var warning = __webpack_require__(13);
-  var ReactPropTypesSecret = __webpack_require__(16);
-  var loggedTypeFailures = {};
-}
-
-/**
- * Assert that the values match with the type specs.
- * Error messages are memorized and will only be shown once.
- *
- * @param {object} typeSpecs Map of name to a ReactPropType
- * @param {object} values Runtime values that need to be type-checked
- * @param {string} location e.g. "prop", "context", "child context"
- * @param {string} componentName Name of the component for error messages.
- * @param {?Function} getStack Returns the component stack.
- * @private
- */
-function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-  if (process.env.NODE_ENV !== 'production') {
-    for (var typeSpecName in typeSpecs) {
-      if (typeSpecs.hasOwnProperty(typeSpecName)) {
-        var error;
-        // Prop type validation may throw. In case they do, we don't want to
-        // fail the render phase where it didn't fail before. So we log it.
-        // After these have been cleaned up, we'll let them throw.
-        try {
-          // This is intentionally an invariant that gets caught. It's the same
-          // behavior as without this statement except with a better message.
-          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
-          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
-        } catch (ex) {
-          error = ex;
-        }
-        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
-        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-          // Only monitor this failure once because there tends to be a lot of the
-          // same error.
-          loggedTypeFailures[error.message] = true;
-
-          var stack = getStack ? getStack() : '';
-
-          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
-        }
-      }
-    }
-  }
-}
-
-module.exports = checkPropTypes;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-
-module.exports = ReactPropTypesSecret;
-
-
-/***/ }),
-/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5887,6 +5801,92 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+if (process.env.NODE_ENV !== 'production') {
+  var invariant = __webpack_require__(7);
+  var warning = __webpack_require__(13);
+  var ReactPropTypesSecret = __webpack_require__(17);
+  var loggedTypeFailures = {};
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if (process.env.NODE_ENV !== 'production') {
+    for (var typeSpecName in typeSpecs) {
+      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+          error = ex;
+        }
+        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+        }
+      }
+    }
+  }
+}
+
+module.exports = checkPropTypes;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
@@ -7259,7 +7259,7 @@ var _reactDom = __webpack_require__(24);
 
 var _mobxReact = __webpack_require__(11);
 
-var _reactRouterDom = __webpack_require__(17);
+var _reactRouterDom = __webpack_require__(15);
 
 var _mobxReactDevtools = __webpack_require__(84);
 
@@ -7269,11 +7269,11 @@ var _AppStore = __webpack_require__(85);
 
 var _AppStore2 = _interopRequireDefault(_AppStore);
 
-var _Menu = __webpack_require__(100);
+var _Menu = __webpack_require__(88);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
-var _Container = __webpack_require__(101);
+var _Container = __webpack_require__(89);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -7946,7 +7946,7 @@ var emptyObject = __webpack_require__(12);
 var invariant = __webpack_require__(7);
 var warning = __webpack_require__(13);
 var emptyFunction = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(15);
+var checkPropTypes = __webpack_require__(16);
 
 // TODO: this is special because it gets imported during build.
 
@@ -9610,7 +9610,7 @@ var shallowEqual = __webpack_require__(28);
 var containsNode = __webpack_require__(29);
 var focusNode = __webpack_require__(30);
 var emptyObject = __webpack_require__(12);
-var checkPropTypes = __webpack_require__(15);
+var checkPropTypes = __webpack_require__(16);
 var hyphenateStyleName = __webpack_require__(51);
 var camelizeStyleName = __webpack_require__(53);
 
@@ -25247,8 +25247,8 @@ var invariant = __webpack_require__(7);
 var warning = __webpack_require__(13);
 var assign = __webpack_require__(6);
 
-var ReactPropTypesSecret = __webpack_require__(16);
-var checkPropTypes = __webpack_require__(15);
+var ReactPropTypesSecret = __webpack_require__(17);
+var checkPropTypes = __webpack_require__(16);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -25794,7 +25794,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 var emptyFunction = __webpack_require__(5);
 var invariant = __webpack_require__(7);
-var ReactPropTypesSecret = __webpack_require__(16);
+var ReactPropTypesSecret = __webpack_require__(17);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -28837,6 +28837,12 @@ var _Form = __webpack_require__(87);
 
 var _Form2 = _interopRequireDefault(_Form);
 
+var _validators = __webpack_require__(101);
+
+var _local_storage = __webpack_require__(102);
+
+var _local_storage2 = _interopRequireDefault(_local_storage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _initDefineProp(target, property, descriptor, context) {
@@ -28884,13 +28890,9 @@ function _initializerWarningHelper(descriptor, context) {
     throw new Error('Decorating class property failed. Please ensure that transform-class-properties is enabled.');
 }
 
-var simpleValidate = function simpleValidate(value) {
-    var valid = !!(value && value.trim().length > 0);
-    var error_text = 'Field can\'t be empty';
-    return {
-        valid: valid,
-        error_text: error_text
-    };
+var getStoredField = function getStoredField(form, field) {
+    var fields = _local_storage2.default.get(form);
+    return fields[field] || '';
 };
 
 var AppStore = (_class = function AppStore() {
@@ -28905,19 +28907,20 @@ var AppStore = (_class = function AppStore() {
     enumerable: true,
     initializer: function initializer() {
         return new _Form2.default({
+            name: 'personalDataForm',
             title: 'Personal Data',
             fields: [new _Field2.default({
                 name: 'first_name',
-                defaultValue: '',
+                defaultValue: getStoredField('personalDataForm', 'first_name'),
                 type: 'text',
                 placeholder: 'Enter your name',
-                validator: simpleValidate
+                validator: _validators.emptyValidate
             }), new _Field2.default({
                 name: 'second_name',
-                defaultValue: '',
+                defaultValue: getStoredField('personalDataForm', 'second_name'),
                 type: 'text',
                 placeholder: 'Enter your second name',
-                validator: simpleValidate
+                validator: _validators.emptyValidate
             })]
         });
     }
@@ -28925,13 +28928,14 @@ var AppStore = (_class = function AppStore() {
     enumerable: true,
     initializer: function initializer() {
         return new _Form2.default({
+            name: 'payDataForm',
             title: 'Pay Data',
             fields: [new _Field2.default({
                 name: 'card_number',
-                defaultValue: '',
+                defaultValue: getStoredField('payDataForm', 'card_number'),
                 type: 'text',
                 placeholder: 'card number',
-                validator: simpleValidate
+                validator: _validators.emptyValidate
             })]
         });
     }
@@ -28939,6 +28943,7 @@ var AppStore = (_class = function AppStore() {
     enumerable: true,
     initializer: function initializer() {
         return new _Form2.default({
+            name: 'finishForm',
             title: 'Submit Data'
         });
     }
@@ -29050,7 +29055,7 @@ var Field = (_class = function () {
 
         this.name = data.name;
         this.defaultValue = data.defaultValue;
-        this.value = data.value;
+        this.value = data.defaultValue;
         this.type = data.type;
         this.placeholder = data.placeholder;
         this.validator = data.validator;
@@ -29181,6 +29186,7 @@ var Form = (_class = function () {
 
         _initDefineProp(this, 'fields', _descriptor3, this);
 
+        this.name = data.name;
         this.title = data.title;
         this.fields = data.fields || [];
 
@@ -29201,8 +29207,176 @@ var Form = (_class = function () {
 exports.default = Form;
 
 /***/ }),
-/* 88 */,
-/* 89 */,
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(15);
+
+var _mobxReact = __webpack_require__(11);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Menu = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(Menu, _Component);
+
+    function Menu() {
+        _classCallCheck(this, Menu);
+
+        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+    }
+
+    _createClass(Menu, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'h1',
+                    null,
+                    'My test app'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'menu' },
+                    _react2.default.createElement(
+                        _reactRouterDom.NavLink,
+                        { exact: true, className: 'menu__item', activeClassName: 'active', to: '/' },
+                        this.props.appStore.personalDataForm.title
+                    ),
+                    '>',
+                    _react2.default.createElement(
+                        _reactRouterDom.NavLink,
+                        { className: 'menu__item', activeClassName: 'active', to: '/paydata' },
+                        this.props.appStore.payDataForm.title
+                    ),
+                    '>',
+                    _react2.default.createElement(
+                        _reactRouterDom.NavLink,
+                        { className: 'menu__item', activeClassName: 'active', to: '/submit' },
+                        this.props.appStore.finishForm.title
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Menu;
+}(_react.Component)) || _class);
+exports.default = Menu;
+;
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(15);
+
+var _mobxReact = __webpack_require__(11);
+
+var _Async = __webpack_require__(90);
+
+var _Async2 = _interopRequireDefault(_Async);
+
+var _Page = __webpack_require__(91);
+
+var _Page2 = _interopRequireDefault(_Page);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PersonalDataPage = (0, _Async2.default)(function () {
+    return __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 92)).then(function (module) {
+        return module.default;
+    });
+});
+var PayDataPage = (0, _Async2.default)(function () {
+    return __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 93)).then(function (module) {
+        return module.default;
+    });
+});
+var FinishPage = (0, _Async2.default)(function () {
+    return __webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 94)).then(function (module) {
+        return module.default;
+    });
+});
+
+var Container = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(Container, _Component);
+
+    function Container() {
+        _classCallCheck(this, Container);
+
+        return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).apply(this, arguments));
+    }
+
+    _createClass(Container, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'forms-container' },
+                _react2.default.createElement(
+                    _reactRouterDom.Switch,
+                    null,
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: PersonalDataPage }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/paydata', component: PayDataPage }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/submit', component: FinishPage }),
+                    _react2.default.createElement(_reactRouterDom.Route, { component: _Page2.default })
+                )
+            );
+        }
+    }]);
+
+    return Container;
+}(_react.Component)) || _class);
+exports.default = Container;
+;
+
+/***/ }),
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29395,88 +29569,7 @@ exports.default = Page404;
 /* 97 */,
 /* 98 */,
 /* 99 */,
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _dec, _class;
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(17);
-
-var _mobxReact = __webpack_require__(11);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Menu = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(Menu, _Component);
-
-    function Menu() {
-        _classCallCheck(this, Menu);
-
-        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
-    }
-
-    _createClass(Menu, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                    'h1',
-                    null,
-                    'My test app'
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'menu' },
-                    _react2.default.createElement(
-                        _reactRouterDom.NavLink,
-                        { exact: true, className: 'menu__item', activeClassName: 'active', to: '/' },
-                        this.props.appStore.personalDataForm.title
-                    ),
-                    '>',
-                    _react2.default.createElement(
-                        _reactRouterDom.NavLink,
-                        { className: 'menu__item', activeClassName: 'active', to: '/paydata' },
-                        this.props.appStore.payDataForm.title
-                    ),
-                    '>',
-                    _react2.default.createElement(
-                        _reactRouterDom.NavLink,
-                        { className: 'menu__item', activeClassName: 'active', to: '/submit' },
-                        this.props.appStore.finishForm.title
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Menu;
-}(_react.Component)) || _class);
-exports.default = Menu;
-;
-
-/***/ }),
+/* 100 */,
 /* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29486,83 +29579,47 @@ exports.default = Menu;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = undefined;
+var emptyValidate = function emptyValidate(value) {
+    var valid = !!(value && value.trim().length > 0);
+    var error_text = 'Field can\'t be empty';
+    return {
+        valid: valid,
+        error_text: error_text
+    };
+};
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+exports.emptyValidate = emptyValidate;
 
-var _dec, _class;
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var _react = __webpack_require__(0);
+"use strict";
 
-var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(17);
-
-var _mobxReact = __webpack_require__(11);
-
-var _Async = __webpack_require__(90);
-
-var _Async2 = _interopRequireDefault(_Async);
-
-var _Page = __webpack_require__(91);
-
-var _Page2 = _interopRequireDefault(_Page);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var PersonalDataPage = (0, _Async2.default)(function () {
-    return __webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, 92)).then(function (module) {
-        return module.default;
-    });
+Object.defineProperty(exports, "__esModule", {
+    value: true
 });
-var PayDataPage = (0, _Async2.default)(function () {
-    return __webpack_require__.e/* import() */(5).then(__webpack_require__.bind(null, 93)).then(function (module) {
-        return module.default;
-    });
-});
-var FinishPage = (0, _Async2.default)(function () {
-    return __webpack_require__.e/* import() */(6).then(__webpack_require__.bind(null, 94)).then(function (module) {
-        return module.default;
-    });
-});
-
-var Container = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(Container, _Component);
-
-    function Container() {
-        _classCallCheck(this, Container);
-
-        return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).apply(this, arguments));
-    }
-
-    _createClass(Container, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'forms-container' },
-                _react2.default.createElement(
-                    _reactRouterDom.Switch,
-                    null,
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: PersonalDataPage }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: '/paydata', component: PayDataPage }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: '/submit', component: FinishPage }),
-                    _react2.default.createElement(_reactRouterDom.Route, { component: _Page2.default })
-                )
-            );
+var STORAGE_NAME = 'my_app_local_storage';
+var local_storage = {
+    set: function set(prop_name, value) {
+        var ls = localStorage.getItem(STORAGE_NAME) ? JSON.parse(localStorage.getItem(STORAGE_NAME)) : {};
+        ls[prop_name] = value;
+        localStorage.setItem(STORAGE_NAME, JSON.stringify(ls));
+    },
+    get: function get(prop_name) {
+        if (!prop_name) {
+            return localStorage.getItem(STORAGE_NAME) ? JSON.parse(localStorage.getItem(STORAGE_NAME)) : {};
         }
-    }]);
+        var ls = JSON.parse(localStorage.getItem(STORAGE_NAME));
+        return ls && ls[prop_name] ? ls[prop_name] : false;
+    },
+    reset: function reset() {
+        localStorage.setItem(STORAGE_NAME, JSON.stringify({}));
+    }
+};
 
-    return Container;
-}(_react.Component)) || _class);
-exports.default = Container;
-;
+exports.default = local_storage;
 
 /***/ })
 /******/ ]);

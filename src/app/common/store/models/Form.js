@@ -27,8 +27,9 @@ class Form {
     }
 
     constructor(data) {
-        this.title = data.title
-        this.fields = data.fields || []
+        this.name = data.name;
+        this.title = data.title;
+        this.fields = data.fields || [];
 
         // this.validate()
     }

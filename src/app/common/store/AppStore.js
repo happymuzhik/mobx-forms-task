@@ -2,50 +2,52 @@ import { observable, computed, reaction } from 'mobx';
 import Field from './models/Field';
 import Form from './models/Form';
 
-const simpleValidate = function (value) {
-    const valid = !!(value && value.trim().length > 0);
-    const error_text = 'Field can\'t be empty';
-    return {
-        valid,
-        error_text
-    }
-}
+import { emptyValidate } from 'utils/validators';
+import local_storage from 'utils/local_storage';
+
+const getStoredField = function(form, field) {
+    const fields = local_storage.get(form)
+    return fields[field] || ''
+};
 
 class AppStore {
     @observable personalDataForm = new Form({
+        name: 'personalDataForm',
         title: 'Personal Data',
         fields: [
             new Field({
                 name: 'first_name',
-                defaultValue: '',
+                defaultValue: getStoredField('personalDataForm', 'first_name'),
                 type: 'text',
                 placeholder: 'Enter your name',
-                validator: simpleValidate
+                validator: emptyValidate
             }),
             new Field({
                 name: 'second_name',
-                defaultValue: '',
+                defaultValue: getStoredField('personalDataForm', 'second_name'),
                 type: 'text',
                 placeholder: 'Enter your second name',
-                validator: simpleValidate
+                validator: emptyValidate
             })
         ]
     });
     
     @observable payDataForm = new Form({
+        name: 'payDataForm',
         title: 'Pay Data',
         fields: [
             new Field({
                 name: 'card_number',
-                defaultValue: '',
+                defaultValue: getStoredField('payDataForm', 'card_number'),
                 type: 'text',
                 placeholder: 'card number',
-                validator: simpleValidate
+                validator: emptyValidate
             })
         ]
     });
 
     @observable finishForm = new Form({
+        name: 'finishForm',
         title: 'Submit Data',
     });
 

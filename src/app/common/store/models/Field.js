@@ -29,7 +29,7 @@ class Field {
     constructor(data) {
         this.name = data.name;
         this.defaultValue = data.defaultValue;
-        this.value = data.value;
+        this.value = data.defaultValue;
         this.type = data.type;
         this.placeholder = data.placeholder;
         this.validator = data.validator;
