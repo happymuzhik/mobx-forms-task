@@ -1,6 +1,6 @@
-webpackJsonp([2],{
+webpackJsonp([0],{
 
-/***/ 103:
+/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21,9 +21,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(11);
 
-var _FinishForm = __webpack_require__(111);
+var _PersonalDataForm = __webpack_require__(109);
 
-var _FinishForm2 = _interopRequireDefault(_FinishForm);
+var _PersonalDataForm2 = _interopRequireDefault(_PersonalDataForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,29 +33,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var FinishPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(FinishPage, _Component);
+var PersonalDataPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(PersonalDataPage, _Component);
 
-    function FinishPage() {
-        _classCallCheck(this, FinishPage);
+    function PersonalDataPage() {
+        _classCallCheck(this, PersonalDataPage);
 
-        return _possibleConstructorReturn(this, (FinishPage.__proto__ || Object.getPrototypeOf(FinishPage)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PersonalDataPage.__proto__ || Object.getPrototypeOf(PersonalDataPage)).apply(this, arguments));
     }
 
-    _createClass(FinishPage, [{
+    _createClass(PersonalDataPage, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'finish-data-page' },
-                _react2.default.createElement(_FinishForm2.default, { form: this.props.appStore.finishForm })
+                { className: 'data-page data-page--personal-data-form' },
+                _react2.default.createElement(_PersonalDataForm2.default, { form: this.props.appStore.personalDataForm })
             );
         }
     }]);
 
-    return FinishPage;
+    return PersonalDataPage;
 }(_react.Component)) || _class);
-exports.default = FinishPage;
+exports.default = PersonalDataPage;
 ;
 
 /***/ }),
@@ -69,7 +69,6 @@ exports.default = FinishPage;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -81,9 +80,17 @@ var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(11);
 
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _local_storage = __webpack_require__(40);
 
 var _local_storage2 = _interopRequireDefault(_local_storage);
+
+var _Form = __webpack_require__(88);
+
+var _Form2 = _interopRequireDefault(_Form);
 
 var _style = __webpack_require__(105);
 
@@ -146,8 +153,13 @@ var Form = (0, _mobxReact.observer)(_class = function (_Component) {
     return Form;
 }(_react.Component)) || _class;
 
-exports.default = Form;
 ;
+
+Form.propTypes = {
+    form: _propTypes2.default.instanceOf(_Form2.default)
+};
+
+exports.default = Form;
 
 /***/ }),
 
@@ -216,6 +228,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(17);
 
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -264,11 +280,98 @@ var LinkButton = function (_Component) {
 
 ;
 
+LinkButton.propTypes = {
+    url: _propTypes2.default.string,
+    onLeaveHook: _propTypes2.default.func
+};
+
 exports.default = (0, _reactRouterDom.withRouter)(LinkButton);
 
 /***/ }),
 
-/***/ 111:
+/***/ 108:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _mobxReact = __webpack_require__(11);
+
+var _Field = __webpack_require__(87);
+
+var _Field2 = _interopRequireDefault(_Field);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Input = (0, _mobxReact.observer)(_class = function (_Component) {
+    _inherits(Input, _Component);
+
+    function Input() {
+        _classCallCheck(this, Input);
+
+        return _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).apply(this, arguments));
+    }
+
+    _createClass(Input, [{
+        key: 'render',
+        value: function render() {
+            var field = this.props.field;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'form__input' + (!field.valid ? ' form__input--error' : '') },
+                _react2.default.createElement('input', _extends({}, this.props, {
+                    name: field.name,
+                    placeholder: field.placeholder,
+                    defaultValue: field.value || field.defaultValue,
+                    type: field.type })),
+                !field.valid ? _react2.default.createElement(
+                    'div',
+                    { className: 'form__error-msg' },
+                    field.error_text
+                ) : false
+            );
+        }
+    }]);
+
+    return Input;
+}(_react.Component)) || _class;
+
+;
+
+Input.propTypes = {
+    field: _propTypes2.default.instanceOf(_Field2.default)
+};
+
+exports.default = Input;
+
+/***/ }),
+
+/***/ 109:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -289,6 +392,10 @@ var _Form2 = __webpack_require__(104);
 
 var _Form3 = _interopRequireDefault(_Form2);
 
+var _Input = __webpack_require__(108);
+
+var _Input2 = _interopRequireDefault(_Input);
+
 var _LinkButton = __webpack_require__(107);
 
 var _LinkButton2 = _interopRequireDefault(_LinkButton);
@@ -301,22 +408,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var FinishForm = function (_Form) {
-    _inherits(FinishForm, _Form);
+var PersonalDataForm = function (_Form) {
+    _inherits(PersonalDataForm, _Form);
 
-    function FinishForm() {
-        _classCallCheck(this, FinishForm);
+    function PersonalDataForm() {
+        _classCallCheck(this, PersonalDataForm);
 
-        return _possibleConstructorReturn(this, (FinishForm.__proto__ || Object.getPrototypeOf(FinishForm)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (PersonalDataForm.__proto__ || Object.getPrototypeOf(PersonalDataForm)).apply(this, arguments));
     }
 
-    _createClass(FinishForm, [{
-        key: 'finish',
-        value: function finish() {
-            this.props.form.valid = true;
-            return true;
-        }
-    }, {
+    _createClass(PersonalDataForm, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -325,27 +426,32 @@ var FinishForm = function (_Form) {
                 _react2.default.createElement(
                     'div',
                     { className: 'form__row' },
-                    _react2.default.createElement(
-                        _LinkButton2.default,
-                        { url: '/paydata' },
-                        'Prev'
-                    ),
+                    _react2.default.createElement(_Input2.default, { field: this.fields.first_name, onChange: this.handleChange.bind(this) })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form__row' },
+                    _react2.default.createElement(_Input2.default, { field: this.fields.second_name, onChange: this.handleChange.bind(this) })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form__row' },
                     _react2.default.createElement(
                         _LinkButton2.default,
                         {
-                            url: '/success',
-                            onLeaveHook: this.finish.bind(this) },
-                        'Finish'
+                            url: '/paydata',
+                            onLeaveHook: this.checkForm.bind(this) },
+                        'Next'
                     )
                 )
             );
         }
     }]);
 
-    return FinishForm;
+    return PersonalDataForm;
 }(_Form3.default);
 
-exports.default = FinishForm;
+exports.default = PersonalDataForm;
 ;
 
 /***/ })

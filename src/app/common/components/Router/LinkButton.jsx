@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class LinkButton extends Component {
     changeURL() {
@@ -16,6 +17,11 @@ class LinkButton extends Component {
                 {this.props.children}
             </button>
     }
+};
+
+LinkButton.propTypes = {
+    url: PropTypes.string,
+    onLeaveHook: PropTypes.func
 };
 
 export default withRouter(LinkButton);

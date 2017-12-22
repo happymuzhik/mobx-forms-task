@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
+import PropTypes from 'prop-types';
 import local_storage from 'utils/local_storage';
+
+import FormModel from 'store/models/Form';
 
 import style from './style.styl'
 
 @observer
-export default class Form extends Component {
+class Form extends Component {
     componentWillMount() {
         this.fields = {}
         this.props.form.fields.map(field => {
@@ -32,3 +35,9 @@ export default class Form extends Component {
         }
     }
 };
+
+Form.propTypes = {
+    form: PropTypes.instanceOf(FormModel)
+};
+
+export default Form;

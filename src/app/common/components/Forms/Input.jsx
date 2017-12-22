@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
+import FieldModel from 'store/models/Field'
+
 @observer
-export default class Input extends Component {
+class Input extends Component {
     render() {
         const { field } = this.props;
         return <div className={'form__input' + ((!field.valid) ?' form__input--error': '')}>
@@ -20,3 +23,9 @@ export default class Input extends Component {
         </div>
     }
 };
+
+Input.propTypes = {
+    field: PropTypes.instanceOf(FieldModel)
+};
+
+export default Input;
