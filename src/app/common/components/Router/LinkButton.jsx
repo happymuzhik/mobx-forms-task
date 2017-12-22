@@ -12,7 +12,7 @@ class LinkButton extends Component {
         }
     }
     render() {
-        return <button type='button' onClick={this.changeURL.bind(this)}>
+        return <button className="link-button" type='button' onClick={this.changeURL.bind(this)}>
                 {this.props.children}
             </button>
     }

@@ -1,192 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 100:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(15);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var LinkButton = function (_Component) {
-    _inherits(LinkButton, _Component);
-
-    function LinkButton() {
-        _classCallCheck(this, LinkButton);
-
-        return _possibleConstructorReturn(this, (LinkButton.__proto__ || Object.getPrototypeOf(LinkButton)).apply(this, arguments));
-    }
-
-    _createClass(LinkButton, [{
-        key: 'changeURL',
-        value: function changeURL() {
-            var _props = this.props,
-                url = _props.url,
-                history = _props.history,
-                onLeaveHook = _props.onLeaveHook;
-
-            if (typeof onLeaveHook == 'function' && onLeaveHook(history)) {
-                history.push(url);
-            }
-            if (typeof onLeaveHook != 'function') {
-                history.push(url);
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'button',
-                { type: 'button', onClick: this.changeURL.bind(this) },
-                this.props.children
-            );
-        }
-    }]);
-
-    return LinkButton;
-}(_react.Component);
-
-;
-
-exports.default = (0, _reactRouterDom.withRouter)(LinkButton);
-
-/***/ }),
-
-/***/ 104:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Form2 = __webpack_require__(99);
-
-var _Form3 = _interopRequireDefault(_Form2);
-
-var _LinkButton = __webpack_require__(100);
-
-var _LinkButton2 = _interopRequireDefault(_LinkButton);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var FinishForm = function (_Form) {
-    _inherits(FinishForm, _Form);
-
-    function FinishForm() {
-        _classCallCheck(this, FinishForm);
-
-        return _possibleConstructorReturn(this, (FinishForm.__proto__ || Object.getPrototypeOf(FinishForm)).apply(this, arguments));
-    }
-
-    _createClass(FinishForm, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'form',
-                { className: 'form' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'form__row' },
-                    _react2.default.createElement(
-                        _LinkButton2.default,
-                        { url: '/paydata' },
-                        'Prev'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return FinishForm;
-}(_Form3.default);
-
-exports.default = FinishForm;
-;
-
-/***/ }),
-
-/***/ 105:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(106);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(25)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!../../../../../node_modules/stylus-loader/index.js?resolve url!./style.styl", function() {
-			var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!../../../../../node_modules/stylus-loader/index.js?resolve url!./style.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 106:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(24)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".form {\n  padding: 20px;\n}\n.form__row {\n  margin-bottom: 10px;\n  text-align: center;\n}\n.form__error-msg {\n  color: #f40;\n  padding: 5px;\n}\n.form__input {\n  max-width: 400px;\n  margin: auto;\n}\n.form__input input {\n  width: 100%;\n  height: 36px;\n  padding: 10px;\n  border: 1px solid #333;\n}\n.form__input--error input {\n  border: 1px solid #f40;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 98:
+/***/ 102:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -207,7 +21,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _mobxReact = __webpack_require__(11);
 
-var _FinishForm = __webpack_require__(104);
+var _FinishForm = __webpack_require__(110);
 
 var _FinishForm2 = _interopRequireDefault(_FinishForm);
 
@@ -246,7 +60,7 @@ exports.default = FinishPage;
 
 /***/ }),
 
-/***/ 99:
+/***/ 103:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -271,7 +85,7 @@ var _local_storage = __webpack_require__(40);
 
 var _local_storage2 = _interopRequireDefault(_local_storage);
 
-var _style = __webpack_require__(105);
+var _style = __webpack_require__(104);
 
 var _style2 = _interopRequireDefault(_style);
 
@@ -333,6 +147,205 @@ var Form = (0, _mobxReact.observer)(_class = function (_Component) {
 }(_react.Component)) || _class;
 
 exports.default = Form;
+;
+
+/***/ }),
+
+/***/ 104:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(105);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(16)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!../../../../../node_modules/stylus-loader/index.js?resolve url!./style.styl", function() {
+			var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!../../../../../node_modules/stylus-loader/index.js?resolve url!./style.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 105:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(15)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".form {\n  padding: 20px;\n}\n.form__row {\n  margin-bottom: 10px;\n  text-align: center;\n}\n.form__error-msg {\n  color: #f40;\n  padding: 5px;\n}\n.form__input {\n  max-width: 400px;\n  margin: auto;\n}\n.form__input input {\n  width: 100%;\n  height: 40px;\n  padding: 10px;\n  border: 1px solid #333;\n}\n.form__input--error input {\n  border: 1px solid #f40;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 106:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(17);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LinkButton = function (_Component) {
+    _inherits(LinkButton, _Component);
+
+    function LinkButton() {
+        _classCallCheck(this, LinkButton);
+
+        return _possibleConstructorReturn(this, (LinkButton.__proto__ || Object.getPrototypeOf(LinkButton)).apply(this, arguments));
+    }
+
+    _createClass(LinkButton, [{
+        key: 'changeURL',
+        value: function changeURL() {
+            var _props = this.props,
+                url = _props.url,
+                history = _props.history,
+                onLeaveHook = _props.onLeaveHook;
+
+            if (typeof onLeaveHook == 'function' && onLeaveHook(history)) {
+                history.push(url);
+            }
+            if (typeof onLeaveHook != 'function') {
+                history.push(url);
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'button',
+                { className: 'link-button', type: 'button', onClick: this.changeURL.bind(this) },
+                this.props.children
+            );
+        }
+    }]);
+
+    return LinkButton;
+}(_react.Component);
+
+;
+
+exports.default = (0, _reactRouterDom.withRouter)(LinkButton);
+
+/***/ }),
+
+/***/ 110:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Form2 = __webpack_require__(103);
+
+var _Form3 = _interopRequireDefault(_Form2);
+
+var _LinkButton = __webpack_require__(106);
+
+var _LinkButton2 = _interopRequireDefault(_LinkButton);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FinishForm = function (_Form) {
+    _inherits(FinishForm, _Form);
+
+    function FinishForm() {
+        _classCallCheck(this, FinishForm);
+
+        return _possibleConstructorReturn(this, (FinishForm.__proto__ || Object.getPrototypeOf(FinishForm)).apply(this, arguments));
+    }
+
+    _createClass(FinishForm, [{
+        key: 'finish',
+        value: function finish() {
+            this.props.form.valid = true;
+            return true;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'form',
+                { className: 'form' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form__row' },
+                    _react2.default.createElement(
+                        _LinkButton2.default,
+                        { url: '/paydata' },
+                        'Prev'
+                    ),
+                    _react2.default.createElement(
+                        _LinkButton2.default,
+                        {
+                            url: '/success',
+                            onLeaveHook: this.finish.bind(this) },
+                        'Finish'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return FinishForm;
+}(_Form3.default);
+
+exports.default = FinishForm;
 ;
 
 /***/ })

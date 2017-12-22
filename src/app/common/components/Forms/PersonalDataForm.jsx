@@ -18,7 +18,7 @@ export default class PersonalDataForm extends Form {
                     url="/paydata"
                     onLeaveHook={this.checkForm.bind(this)}>
                     Next
-                </LinkButton>
+                </LinkButton>                
             </div>
         </form>
     }

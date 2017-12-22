@@ -9,6 +9,204 @@ webpackJsonp([0],{
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _mobxReact = __webpack_require__(11);
+
+var _PersonalDataForm = __webpack_require__(108);
+
+var _PersonalDataForm2 = _interopRequireDefault(_PersonalDataForm);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PersonalDataPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
+    _inherits(PersonalDataPage, _Component);
+
+    function PersonalDataPage() {
+        _classCallCheck(this, PersonalDataPage);
+
+        return _possibleConstructorReturn(this, (PersonalDataPage.__proto__ || Object.getPrototypeOf(PersonalDataPage)).apply(this, arguments));
+    }
+
+    _createClass(PersonalDataPage, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'data-page data-page--personal-data-form' },
+                _react2.default.createElement(_PersonalDataForm2.default, { form: this.props.appStore.personalDataForm })
+            );
+        }
+    }]);
+
+    return PersonalDataPage;
+}(_react.Component)) || _class);
+exports.default = PersonalDataPage;
+;
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _class;
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _mobxReact = __webpack_require__(11);
+
+var _local_storage = __webpack_require__(40);
+
+var _local_storage2 = _interopRequireDefault(_local_storage);
+
+var _style = __webpack_require__(104);
+
+var _style2 = _interopRequireDefault(_style);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Form = (0, _mobxReact.observer)(_class = function (_Component) {
+    _inherits(Form, _Component);
+
+    function Form() {
+        _classCallCheck(this, Form);
+
+        return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+    }
+
+    _createClass(Form, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            this.fields = {};
+            this.props.form.fields.map(function (field) {
+                _this2.fields[field.name] = field;
+            });
+        }
+    }, {
+        key: 'checkForm',
+        value: function checkForm() {
+            _local_storage2.default.set(this.props.form.name, {
+                fields: this.props.form.getValues(),
+                valid: this.props.form.validate()
+            });
+            return this.props.form.validate();
+        }
+    }, {
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.props.form.getField(e.target.name).onChange(e.target.value);
+        }
+    }, {
+        key: 'onSubmit',
+        value: function onSubmit(e) {
+            e.preventDefault();
+            console.log('this.props.form.validate()', this.props.form.validate());
+            console.log('this.props.form.valid', this.props.form.valid);
+            console.log('this.props.form.getValues()', this.props.form.getValues());
+            if (typeof this.afterSubmit == 'function') {
+                this.afterSubmit.call(this);
+            }
+        }
+    }]);
+
+    return Form;
+}(_react.Component)) || _class;
+
+exports.default = Form;
+;
+
+/***/ }),
+
+/***/ 104:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(105);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(16)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!../../../../../node_modules/stylus-loader/index.js?resolve url!./style.styl", function() {
+			var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!../../../../../node_modules/stylus-loader/index.js?resolve url!./style.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 105:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(15)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".form {\n  padding: 20px;\n}\n.form__row {\n  margin-bottom: 10px;\n  text-align: center;\n}\n.form__error-msg {\n  color: #f40;\n  padding: 5px;\n}\n.form__input {\n  max-width: 400px;\n  margin: auto;\n}\n.form__input input {\n  width: 100%;\n  height: 40px;\n  padding: 10px;\n  border: 1px solid #333;\n}\n.form__input--error input {\n  border: 1px solid #f40;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 106:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -16,7 +214,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(15);
+var _reactRouterDom = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55,7 +253,7 @@ var LinkButton = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 'button',
-                { type: 'button', onClick: this.changeURL.bind(this) },
+                { className: 'link-button', type: 'button', onClick: this.changeURL.bind(this) },
                 this.props.children
             );
         }
@@ -70,7 +268,7 @@ exports.default = (0, _reactRouterDom.withRouter)(LinkButton);
 
 /***/ }),
 
-/***/ 101:
+/***/ 107:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -140,7 +338,7 @@ exports.default = Input;
 
 /***/ }),
 
-/***/ 102:
+/***/ 108:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -157,15 +355,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Form2 = __webpack_require__(99);
+var _Form2 = __webpack_require__(103);
 
 var _Form3 = _interopRequireDefault(_Form2);
 
-var _Input = __webpack_require__(101);
+var _Input = __webpack_require__(107);
 
 var _Input2 = _interopRequireDefault(_Input);
 
-var _LinkButton = __webpack_require__(100);
+var _LinkButton = __webpack_require__(106);
 
 var _LinkButton2 = _interopRequireDefault(_LinkButton);
 
@@ -221,204 +419,6 @@ var PersonalDataForm = function (_Form) {
 }(_Form3.default);
 
 exports.default = PersonalDataForm;
-;
-
-/***/ }),
-
-/***/ 105:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(106);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(25)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!../../../../../node_modules/stylus-loader/index.js?resolve url!./style.styl", function() {
-			var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 versions!../../../../../node_modules/stylus-loader/index.js?resolve url!./style.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 106:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(24)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".form {\n  padding: 20px;\n}\n.form__row {\n  margin-bottom: 10px;\n  text-align: center;\n}\n.form__error-msg {\n  color: #f40;\n  padding: 5px;\n}\n.form__input {\n  max-width: 400px;\n  margin: auto;\n}\n.form__input input {\n  width: 100%;\n  height: 36px;\n  padding: 10px;\n  border: 1px solid #333;\n}\n.form__input--error input {\n  border: 1px solid #f40;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 96:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _dec, _class;
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _mobxReact = __webpack_require__(11);
-
-var _PersonalDataForm = __webpack_require__(102);
-
-var _PersonalDataForm2 = _interopRequireDefault(_PersonalDataForm);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var PersonalDataPage = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_Component) {
-    _inherits(PersonalDataPage, _Component);
-
-    function PersonalDataPage() {
-        _classCallCheck(this, PersonalDataPage);
-
-        return _possibleConstructorReturn(this, (PersonalDataPage.__proto__ || Object.getPrototypeOf(PersonalDataPage)).apply(this, arguments));
-    }
-
-    _createClass(PersonalDataPage, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'data-page data-page--personal-data-form' },
-                _react2.default.createElement(_PersonalDataForm2.default, { form: this.props.appStore.personalDataForm })
-            );
-        }
-    }]);
-
-    return PersonalDataPage;
-}(_react.Component)) || _class);
-exports.default = PersonalDataPage;
-;
-
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _class;
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _mobxReact = __webpack_require__(11);
-
-var _local_storage = __webpack_require__(40);
-
-var _local_storage2 = _interopRequireDefault(_local_storage);
-
-var _style = __webpack_require__(105);
-
-var _style2 = _interopRequireDefault(_style);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Form = (0, _mobxReact.observer)(_class = function (_Component) {
-    _inherits(Form, _Component);
-
-    function Form() {
-        _classCallCheck(this, Form);
-
-        return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
-    }
-
-    _createClass(Form, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            var _this2 = this;
-
-            this.fields = {};
-            this.props.form.fields.map(function (field) {
-                _this2.fields[field.name] = field;
-            });
-        }
-    }, {
-        key: 'checkForm',
-        value: function checkForm() {
-            _local_storage2.default.set(this.props.form.name, {
-                fields: this.props.form.getValues(),
-                valid: this.props.form.validate()
-            });
-            return this.props.form.validate();
-        }
-    }, {
-        key: 'handleChange',
-        value: function handleChange(e) {
-            this.props.form.getField(e.target.name).onChange(e.target.value);
-        }
-    }, {
-        key: 'onSubmit',
-        value: function onSubmit(e) {
-            e.preventDefault();
-            console.log('this.props.form.validate()', this.props.form.validate());
-            console.log('this.props.form.valid', this.props.form.valid);
-            console.log('this.props.form.getValues()', this.props.form.getValues());
-            if (typeof this.afterSubmit == 'function') {
-                this.afterSubmit.call(this);
-            }
-        }
-    }]);
-
-    return Form;
-}(_react.Component)) || _class;
-
-exports.default = Form;
 ;
 
 /***/ })
