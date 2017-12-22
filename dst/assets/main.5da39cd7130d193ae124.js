@@ -7776,8 +7776,7 @@ var stores = { appStore: _AppStore2.default };
             'div',
             null,
             _react2.default.createElement(_Menu2.default, null),
-            _react2.default.createElement(_Container2.default, null),
-            _react2.default.createElement(_mobxReactDevtools2.default, null)
+            _react2.default.createElement(_Container2.default, null)
         )
     )
 ), document.getElementById('root'));
@@ -29297,6 +29296,10 @@ var _reactRouterDom = __webpack_require__(17);
 
 var _mobxReact = __webpack_require__(11);
 
+var _Chevron = __webpack_require__(111);
+
+var _Chevron2 = _interopRequireDefault(_Chevron);
+
 var _style = __webpack_require__(91);
 
 var _style2 = _interopRequireDefault(_style);
@@ -29343,7 +29346,7 @@ var Menu = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_
                             to: '/' },
                         personalDataForm.title
                     ),
-                    '>',
+                    _react2.default.createElement(_Chevron2.default, null),
                     _react2.default.createElement(
                         _reactRouterDom.NavLink,
                         {
@@ -29352,7 +29355,7 @@ var Menu = (_dec = (0, _mobxReact.inject)('appStore'), _dec(_class = function (_
                             to: '/paydata' },
                         payDataForm.title
                     ),
-                    '>',
+                    _react2.default.createElement(_Chevron2.default, null),
                     _react2.default.createElement(
                         _reactRouterDom.NavLink,
                         {
@@ -29411,7 +29414,7 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 
 // module
-exports.push([module.i, ".header {\n  text-align: center;\n}\n.menu {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #333;\n}\n.menu__item {\n  font-size: 1.5rem;\n  color: #ccc;\n}\n.menu__item:hover,\n.menu__item:active {\n  color: #a3a3a3;\n}\n.menu__item--active,\n.menu__item--valid {\n  color: #333;\n}\n.menu__item--active:hover,\n.menu__item--valid:hover,\n.menu__item--active:active,\n.menu__item--valid:active {\n  color: #5c5c5c;\n}\n.link-button {\n  height: 40px;\n  background-color: #333;\n  color: #fff;\n  box-shadow: none;\n  border: 1px solid #333;\n  padding: 10px 30px;\n  line-height: 100%;\n  cursor: pointer;\n  margin: 0px 10px;\n  transition: all 300ms ease-in-out;\n}\n.link-button:hover {\n  background-color: #5c5c5c;\n}\n", ""]);
+exports.push([module.i, ".header {\n  text-align: center;\n}\n.menu {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #333;\n}\n.menu__item {\n  font-size: 1.5rem;\n  color: #ccc;\n}\n.menu__item:hover,\n.menu__item:active {\n  color: #a3a3a3;\n}\n.menu__item--active,\n.menu__item--valid {\n  color: #333;\n}\n.menu__item--active:hover,\n.menu__item--valid:hover,\n.menu__item--active:active,\n.menu__item--valid:active {\n  color: #5c5c5c;\n}\n.link-button {\n  height: 40px;\n  background-color: #333;\n  color: #fff;\n  box-shadow: none;\n  border: 1px solid #333;\n  padding: 10px 30px;\n  line-height: 100%;\n  cursor: pointer;\n  margin: 0px 10px;\n  transition: all 300ms ease-in-out;\n}\n.link-button:hover {\n  background-color: #5c5c5c;\n}\n.chevron {\n  content: '';\n  border-style: solid;\n  border-width: 0.25em 0.25em 0 0;\n  display: inline-block;\n  top: 1em;\n  left: 0;\n  position: relative;\n  transform: rotate(45deg);\n  vertical-align: top;\n  height: 0.8em;\n  width: 0.8em;\n}\n", ""]);
 
 // exports
 
@@ -29849,6 +29852,65 @@ exports.push([module.i, ".success-msg {\n  text-align: center;\n  padding: 40px;
 
 // exports
 
+
+/***/ }),
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Chevron = function (_Component) {
+    _inherits(Chevron, _Component);
+
+    function Chevron() {
+        _classCallCheck(this, Chevron);
+
+        return _possibleConstructorReturn(this, (Chevron.__proto__ || Object.getPrototypeOf(Chevron)).apply(this, arguments));
+    }
+
+    _createClass(Chevron, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement("div", { className: "chevron" });
+        }
+    }]);
+
+    return Chevron;
+}(_react.Component);
+
+exports.default = Chevron;
+;
 
 /***/ })
 /******/ ]);

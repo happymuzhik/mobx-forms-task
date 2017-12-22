@@ -19,7 +19,7 @@ render(
             <div>
                 <Menu />
                 <Container />
-                <DevTools />
+                {/* <DevTools /> */}
             </div>            
         </Router>
     </Provider>,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { inject } from 'mobx-react';
+import Chevron from './Chevron';
 
 import style from './style.styl';
 
@@ -18,13 +19,15 @@ export default class Menu extends Component {
                     activeClassName="menu__item--active"
                     to="/">
                     {personalDataForm.title}
-                </NavLink>>
+                </NavLink>
+                <Chevron />
                 <NavLink
                     className={'menu__item' + ((payDataForm.valid)? ' menu__item--valid':'')}
                     activeClassName="menu__item--active"
                     to="/paydata">
                     {payDataForm.title}
-                </NavLink>>
+                </NavLink>
+                <Chevron />
                 <NavLink
                     className={'menu__item' + ((finishForm.valid)? ' menu__item--valid':'')}
                     activeClassName="menu__item--active"
