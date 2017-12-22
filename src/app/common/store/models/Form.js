@@ -30,6 +30,7 @@ class Form {
         this.name = data.name;
         this.title = data.title;
         this.fields = data.fields || [];
+        this.valid = data.valid || false;
 
         // this.validate()
     }

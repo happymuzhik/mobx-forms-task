@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 export default class Input extends Component {
     render() {
         const { field } = this.props;
-        return <span>
+        return <div className={'form__input' + ((!field.valid) ?' form__input--error': '')}>
             <input
                 {...this.props}
                 name={field.name}
@@ -14,9 +14,9 @@ export default class Input extends Component {
                 type={field.type} />
             {
                 (!field.valid) ? 
-                <div>{field.error_text}</div>
+                    <div className="form__error-msg">{field.error_text}</div>
                 :false
             }
-        </span>
+        </div>
     }
 };

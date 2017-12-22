@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import local_storage from 'utils/local_storage';
 
+import style from './style.styl'
+
 @observer
 export default class Form extends Component {
     componentWillMount() {
@@ -11,7 +13,10 @@ export default class Form extends Component {
         })
     }
     checkForm() {
-        local_storage.set(this.props.form.name, this.props.form.getValues())
+        local_storage.set(this.props.form.name, {
+            fields: this.props.form.getValues(),
+            valid: this.props.form.validate(),
+        })
         return this.props.form.validate();
     }
     handleChange(e) {

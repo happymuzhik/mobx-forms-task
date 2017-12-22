@@ -5,15 +5,27 @@ import Form from './models/Form';
 import { emptyValidate } from 'utils/validators';
 import local_storage from 'utils/local_storage';
 
-const getStoredField = function(form, field) {
-    const fields = local_storage.get(form)
-    return fields[field] || ''
+const getStoredField = function(form_name, field_name) {
+    const form = local_storage.get(form_name);
+    if (form){
+        const fields = form.fields;
+        return fields[field_name];
+    }
+    return '';
+};
+const getStoredValid = function(form_name) {
+    const form = local_storage.get(form_name);
+    if (form){
+        return form.valid;
+    }
+    return false;
 };
 
 class AppStore {
     @observable personalDataForm = new Form({
         name: 'personalDataForm',
         title: 'Personal Data',
+        valid: getStoredValid('personalDataForm'),
         fields: [
             new Field({
                 name: 'first_name',
@@ -35,6 +47,7 @@ class AppStore {
     @observable payDataForm = new Form({
         name: 'payDataForm',
         title: 'Pay Data',
+        valid: getStoredValid('payDataForm'),
         fields: [
             new Field({
                 name: 'card_number',
@@ -49,6 +62,7 @@ class AppStore {
     @observable finishForm = new Form({
         name: 'finishForm',
         title: 'Submit Data',
+        valid: getStoredValid('finishForm')
     });
 
 };

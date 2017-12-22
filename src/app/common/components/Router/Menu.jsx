@@ -7,17 +7,29 @@ import style from './style.styl';
 @inject('appStore')
 export default class Menu extends Component {
     render() {
+        const personalDataForm = this.props.appStore.personalDataForm;
+        const payDataForm = this.props.appStore.payDataForm;
+        const finishForm = this.props.appStore.finishForm;
         return  <div className="header">
             <h1>My test app</h1>
             <div className="menu">
-                <NavLink exact className="menu__item" activeClassName="menu__item--active" to="/">
-                    { this.props.appStore.personalDataForm.title }
+                <NavLink exact
+                    className={'menu__item' + ((personalDataForm.valid)? ' menu__item--valid':'')}
+                    activeClassName="menu__item--active"
+                    to="/">
+                    {personalDataForm.title}
                 </NavLink>>
-                <NavLink className="menu__item" activeClassName="menu__item--active" to="/paydata">
-                    { this.props.appStore.payDataForm.title }
+                <NavLink
+                    className={'menu__item' + ((payDataForm.valid)? ' menu__item--valid':'')}
+                    activeClassName="menu__item--active"
+                    to="/paydata">
+                    {payDataForm.title}
                 </NavLink>>
-                <NavLink className="menu__item" activeClassName="menu__item--active" to="/submit">
-                    { this.props.appStore.finishForm.title }
+                <NavLink
+                    className={'menu__item' + ((finishForm.valid)? ' menu__item--valid':'')}
+                    activeClassName="menu__item--active"
+                    to="/submit">
+                    {finishForm.title}
                 </NavLink>
             </div>
         </div>
