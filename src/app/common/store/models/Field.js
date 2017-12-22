@@ -1,4 +1,5 @@
 import { observable } from 'mobx';
+import { Validator } from 'utils/validators';
 
 const DEFAULT_ERROR_TEXT = 'Something went wrong';
 
@@ -12,18 +13,23 @@ class Field {
     }
 
     onChange(value) {
-        this.setValue(value)
+        this.setValue(value);
     }
 
     validate() {
         if (this.hasValidator) {
-            const { valid, error_text } = this.validator(this.value)
-            this.valid = valid;
-            this.error_text = error_text || DEFAULT_ERROR_TEXT;
+            const validator = this.validator(this.value)
+            if (validator instanceof Validator){
+                this.valid = validator.valid;
+                this.error_text = validator.error_text || DEFAULT_ERROR_TEXT;
+            }else{
+                console.error('Use Validator class, please')
+                this.valid = false;    
+            }
         } else {
-            this.valid = true
+            this.valid = true;
         }
-        return this.valid
+        return this.valid;
     }
 
     constructor(data) {
